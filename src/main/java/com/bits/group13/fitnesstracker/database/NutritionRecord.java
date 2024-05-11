@@ -1,6 +1,6 @@
 package com.bits.group13.fitnesstracker.database;
 
-import com.bits.group13.fitnesstracker.model.Goal;
+import com.bits.group13.fitnesstracker.model.Nutrition;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,16 +10,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "goals")
-public final class GoalRecord {
+@Table(name = "Nutrition")
+public final class NutritionRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    private String type;
+    private String nutritionType;
 
-    public Goal toGoal() {
-        return new Goal(id, type);
+    public Nutrition toNutrition() {
+        return new Nutrition(id, nutritionType);
     }
 }
