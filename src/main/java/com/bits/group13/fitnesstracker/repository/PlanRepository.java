@@ -5,5 +5,5 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PlanRepository extends CrudRepository<PlanRecord, String> {
-    public Optional<PlanRecord> findById(String id);
+  public Optional<PlanRecord> findById(String id);
 }

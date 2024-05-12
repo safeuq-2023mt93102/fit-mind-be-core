@@ -2,12 +2,17 @@ package com.bits.group13.fitnesstracker.controller;
 
 import com.bits.group13.fitnesstracker.database.UserRecord;
 import com.bits.group13.fitnesstracker.model.ApiException;
-import com.bits.group13.fitnesstracker.model.ApiException.ParamEmpty;
+import com.bits.group13.fitnesstracker.model.ApiException.ParamNotEditable;
+import com.bits.group13.fitnesstracker.model.ApiException.ParamNotSet;
 import com.bits.group13.fitnesstracker.model.ApiException.ParamNotUnique;
 import com.bits.group13.fitnesstracker.model.User;
 import com.bits.group13.fitnesstracker.repository.UserRepository;
+import java.security.Principal;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +22,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
   private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
@@ -29,48 +36,70 @@ public class UserController {
     this.userRepository = userRepository;
   }
 
-  @PostMapping("/users")
-  public ResponseEntity<?> createUser(@RequestBody User user) throws ApiException {
-    if (StringUtils.isEmpty(user.firstName())) {
-      throw new ParamEmpty("first_name");
+  //  @PostMapping("/users")
+  //  public ResponseEntity<User> createUser(@RequestBody User user) throws ApiException {
+  //    return ResponseEntity.ok().body(createUserInternal(user));
+  //  }
+
+  public User createRootUserInternal(User user)
+      throws ParamNotSet, ParamNotUnique, ParamNotEditable {
+    String rootUserId = "user-" + UUID.randomUUID();
+    return createUserInternal(user, rootUserId, rootUserId);
+  }
+
+  public User createUserInternal(User user, String userId, String ownerId)
+      throws ParamNotSet, ParamNotUnique, ParamNotEditable {
+    if (StringUtils.isEmpty(user.getFirstName())) {
+      throw new ParamNotSet("first_name");
     }
-    if (StringUtils.isEmpty(user.lastName())) {
-      throw new ParamEmpty("last_name");
+    if (StringUtils.isEmpty(user.getLastName())) {
+      throw new ApiException.ParamNotSet("last_name");
     }
-    if (user.dateOfBirth() == null) {
-      throw new ParamEmpty("date_of_birth");
+    if (StringUtils.isEmpty(user.getEmail())) {
+      throw new ParamNotSet("email");
     }
-    if (StringUtils.isEmpty(user.email())) {
-      throw new ParamEmpty("email");
+    if (StringUtils.isNotEmpty(user.getId())) {
+      throw new ParamNotEditable("id");
     }
     try {
-      UserRecord savedUser = userRepository.save(user.toUserRecord());
-      return ResponseEntity.ok().body(savedUser);
+      UserRecord savedUser = userRepository.save(user.toUserRecord(userId, ownerId));
+      return savedUser.toUser();
     } catch (DataIntegrityViolationException exception) {
       throw new ParamNotUnique("email");
     }
   }
 
-  @GetMapping("/users/{id}")
-  public ResponseEntity<User> getUser(@PathVariable("id") String userId) {
+  @GetMapping("/{id}")
+  public ResponseEntity<User> getUser(@PathVariable("id") String userId, Principal principal) {
     return userRepository
-        .findById(userId)
+        .findByIdAndOwnerId(userId, principal.getName())
         .map(userRecord -> ResponseEntity.ok(userRecord.toUser()))
         .orElseGet(() -> ResponseEntity.notFound().build());
   }
 
-  @PostMapping("/users/{id}")
-  public ResponseEntity<?> updateUser(@PathVariable String id, @RequestBody User user) {
-    Optional<UserRecord> oldUserOptional = userRepository.findById(id);
+  @GetMapping("/")
+  public ResponseEntity<List<User>> getUsers(Principal principal) {
+    return ResponseEntity.ok(
+        userRepository.findAllByOwnerId(principal.getName()).stream()
+            .map(UserRecord::toUser)
+            .collect(Collectors.toList()));
+  }
+
+  @PostMapping("/{id}")
+  public ResponseEntity<?> updateUser(
+      @PathVariable String id, @RequestBody User user, Principal principal) {
+    Optional<UserRecord> oldUserOptional =
+        userRepository.findByIdAndOwnerId(id, principal.getName());
     if (oldUserOptional.isEmpty()) {
       return ResponseEntity.notFound().build();
     }
     UserRecord oldUser = oldUserOptional.get();
-    if (StringUtils.isNotEmpty(user.email()) && !Objects.equals(user.email(), oldUser.getEmail())) {
-      return ResponseEntity.badRequest().body(new ApiException.ParamNotEditable("email"));
+    if (StringUtils.isNotEmpty(user.getEmail())
+        && !Objects.equals(user.getEmail(), oldUser.getEmail())) {
+      return ResponseEntity.badRequest().body(new ParamNotEditable("email"));
     }
     try {
-      UserRecord savedUser = userRepository.save(user.toUserRecord(oldUser));
+      UserRecord savedUser = userRepository.save(user.toUserRecord(oldUser, null));
       return ResponseEntity.ok().body(savedUser);
     } catch (DataIntegrityViolationException exception) {
       return ResponseEntity.badRequest().body(new ParamNotUnique("email"));

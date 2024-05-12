@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "plan")
 public final class PlanRecord {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private String id;
 
-    private String planName;
+  private String planName;
 
-    public Plan toPlan() {
-        return new Plan(id, planName);
-    }
+  public Plan toPlan() {
+    return new Plan(id, planName);
+  }
 }

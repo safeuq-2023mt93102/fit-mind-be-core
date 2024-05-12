@@ -5,5 +5,5 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 public interface NutritionRepository extends CrudRepository<NutritionRecord, String> {
-    public Optional<NutritionRecord> findById(String id);
+  public Optional<NutritionRecord> findById(String id);
 }

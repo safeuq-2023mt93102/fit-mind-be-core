@@ -3,8 +3,6 @@ package com.bits.group13.fitnesstracker.database;
 import com.bits.group13.fitnesstracker.model.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
@@ -21,9 +19,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 @IdClass(UserRecord.PrimaryKey.class)
 public final class UserRecord {
-  @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private String id;
+  @Id private String id;
+  private String ownerId;
 
   private String firstName;
   private String lastName;

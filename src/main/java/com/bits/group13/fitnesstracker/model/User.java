@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
 
 public final class User {
   public static final String DATE_PATTERN = "dd-MM-yyyy";
@@ -35,22 +36,25 @@ public final class User {
       @JsonProperty("email") String email,
       @JsonProperty("date_of_birth") String dateOfBirth)
       throws ParamPatternInvalid {
-    LocalDate dateOfBirthParsed;
+    LocalDate dateOfBirthParsed = null;
     try {
-      dateOfBirthParsed = LocalDate.parse(dateOfBirth, DATE_FORMATTER);
+      if (StringUtils.isNotEmpty(dateOfBirth)) {
+        dateOfBirthParsed = LocalDate.parse(dateOfBirth, DATE_FORMATTER);
+      }
     } catch (DateTimeParseException exception) {
       throw new ParamPatternInvalid("date_of_birth");
     }
     return new User(id, firstName, lastName, email, dateOfBirthParsed);
   }
 
-  public UserRecord toUserRecord() {
-    return new UserRecord(id, firstName, lastName, email, dateOfBirth);
+  public UserRecord toUserRecord(String userId, String ownerId) {
+    return new UserRecord(userId, ownerId, firstName, lastName, email, dateOfBirth);
   }
 
-  public UserRecord toUserRecord(UserRecord oldUser) {
+  public UserRecord toUserRecord(UserRecord oldUser, String ownerId) {
     return new UserRecord(
         Objects.requireNonNullElse(id, oldUser.getId()),
+        Objects.requireNonNullElse(ownerId, oldUser.getOwnerId()),
         Objects.requireNonNullElse(firstName, oldUser.getFirstName()),
         Objects.requireNonNullElse(lastName, oldUser.getLastName()),
         Objects.requireNonNullElse(email, oldUser.getEmail()),
@@ -62,64 +66,27 @@ public final class User {
   }
 
   @JsonProperty("id")
-  public String id() {
+  public String getId() {
     return id;
   }
 
   @JsonProperty("first_name")
-  public String firstName() {
+  public String getFirstName() {
     return firstName;
   }
 
   @JsonProperty("last_name")
-  public String lastName() {
+  public String getLastName() {
     return lastName;
   }
 
   @JsonProperty("email")
-  public String email() {
+  public String getEmail() {
     return email;
   }
 
   @JsonProperty("date_of_birth")
   public String dateOfBirth() {
     return DATE_FORMATTER.format(dateOfBirth);
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (obj == this) return true;
-    if (obj == null || obj.getClass() != this.getClass()) return false;
-    var that = (User) obj;
-    return Objects.equals(this.id, that.id)
-        && Objects.equals(this.firstName, that.firstName)
-        && Objects.equals(this.lastName, that.lastName)
-        && Objects.equals(this.email, that.email)
-        && Objects.equals(this.dateOfBirth, that.dateOfBirth);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, firstName, lastName, email, dateOfBirth);
-  }
-
-  @Override
-  public String toString() {
-    return "User["
-        + "id="
-        + id
-        + ", "
-        + "firstName="
-        + firstName
-        + ", "
-        + "lastName="
-        + lastName
-        + ", "
-        + "email="
-        + email
-        + ", "
-        + "dateOfBirth="
-        + dateOfBirth
-        + ']';
   }
 }

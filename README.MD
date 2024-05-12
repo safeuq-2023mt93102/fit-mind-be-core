@@ -29,9 +29,8 @@
   ```json
   {
     "id": "value",
-    "type": "typename",
-    "value": 0,
     "metadata": {
+      "type": "typename",
       "key": "value"
     },
     "source": {
