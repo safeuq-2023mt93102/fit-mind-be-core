@@ -1,0 +1,77 @@
+{
+  "plan_name": "Advanced Muscle Gain Workout Plan",
+  "goal": "Gain Weight (Muscle Mass)",
+  "description": "An advanced-level workout plan for individuals looking to maximize muscle growth.",
+  "duration_weeks": 16,
+  "workouts": [
+    {
+      "day": "Monday",
+      "exercises": [
+        {
+          "name": "Back Squats",
+          "sets": 5,
+          "reps": 5,
+          "weight": "80% of 1RM"
+        },
+        {
+          "name": "Deadlifts",
+          "sets": 5,
+          "reps": 5,
+          "weight": "80% of 1RM"
+        },
+        {
+          "name": "Bench Press",
+          "sets": 5,
+          "reps": 5,
+          "weight": "80% of 1RM"
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "exercises": [
+        {
+          "name": "Front Squats",
+          "sets": 4,
+          "reps": 6,
+          "weight": "75% of 1RM"
+        },
+        {
+          "name": "Romanian Deadlifts",
+          "sets": 4,
+          "reps": 6,
+          "weight": "75% of 1RM"
+        },
+        {
+          "name": "Incline Bench Press",
+          "sets": 4,
+          "reps": 6,
+          "weight": "75% of 1RM"
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "exercises": [
+        {
+          "name": "Overhead Press",
+          "sets": 5,
+          "reps": 5,
+          "weight": "80% of 1RM"
+        },
+        {
+          "name": "Pull-ups",
+          "sets": 5,
+          "reps": 5,
+          "weight": "Bodyweight"
+        },
+        {
+          "name": "Barbell Rows",
+          "sets": 5,
+          "reps": 5,
+          "weight": "80% of 1RM"
+        }
+      ]
+    }
+  ]
+}

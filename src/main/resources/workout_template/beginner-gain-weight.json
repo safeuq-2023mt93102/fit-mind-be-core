@@ -1,0 +1,154 @@
+{
+  "id": "123",
+  "name": "Beginner Muscle Gain Workout Plan",
+  "duration": "P84D",
+  "workouts": [
+    {
+      "day": "2024-05-13",
+      "exercises": [
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type":"EXERCISE",
+            "exercise": "BARBELL_SQUATS",
+            "sets": 4,
+            "repetitions": 8
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "BENCH_PRESS",
+            "sets": 4,
+            "repetitions": 8
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "PULL_UPS",
+            "sets": 3,
+            "repetitions": 8
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "OVERHEAD_PRESS",
+            "sets": 3,
+            "repetitions": 8
+          }
+        }
+      ]
+    },
+    {
+      "day": "2024-05-13",
+      "exercises": [
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "DEADLIFTS",
+            "sets": 4,
+            "repetitions": 6
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "BARBELL_ROWS",
+            "sets": 4,
+            "repetitions": 8
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "DUMBBELL_LUNGES",
+            "sets": 3,
+            "repetitions": 10
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "DUMBBELL_SHOULDER_PRESS",
+            "sets": 3,
+            "repetitions": 8
+          }
+        }
+      ]
+    },
+    {
+      "day": "2024-05-13",
+      "exercises": [
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "LEG_PRESS",
+            "sets": 4,
+            "repetitions": 10
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "INCLINE_DUMBBELL_BENCH_PRESS",
+            "sets": 4,
+            "repetitions": 8
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "LAT_PULL_DOWNS",
+            "sets": 3,
+            "repetitions": 10
+          }
+        },
+        {
+          "id": "123",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "TRICEP_DIPS",
+            "sets": 3,
+            "repetitions": 10
+          }
+        }
+      ]
+    }
+  ]
+}

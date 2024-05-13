@@ -1,0 +1,80 @@
+{
+  "plan_name": "Beginner Fat Loss Workout Plan",
+  "goal": "Lose Weight (Fat Loss)",
+  "description": "A beginner-level workout plan focusing on burning fat and improving fitness.",
+  "duration_weeks": 8,
+  "workouts": [
+    {
+      "day": "Monday",
+      "exercises": [
+        {
+          "name": "Cardio (Running or Cycling)",
+          "duration_minutes": 30
+        },
+        {
+          "name": "Bodyweight Squats",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Push-ups",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Plank",
+          "duration_seconds": 45,
+          "sets": 3
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "exercises": [
+        {
+          "name": "Interval Training (HIIT)",
+          "duration_minutes": 25
+        },
+        {
+          "name": "Jumping Jacks",
+          "sets": 3,
+          "reps": 20
+        },
+        {
+          "name": "Mountain Climbers",
+          "sets": 3,
+          "reps": 15
+        },
+        {
+          "name": "Russian Twists",
+          "sets": 3,
+          "reps": 15
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "exercises": [
+        {
+          "name": "Cardio (Swimming or Rowing)",
+          "duration_minutes": 30
+        },
+        {
+          "name": "Burpees",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Dumbbell Lunges",
+          "sets": 3,
+          "reps": 12
+        },
+        {
+          "name": "Plank",
+          "duration_seconds": 60,
+          "sets": 3
+        }
+      ]
+    }
+  ]
+}

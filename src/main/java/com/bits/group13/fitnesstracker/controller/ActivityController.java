@@ -43,7 +43,7 @@ public class ActivityController {
     this.activityRepository = activityRepository;
   }
 
-  @PostMapping("/")
+  @PostMapping(value = {"", "/"})
   public ResponseEntity<Activity> createActivity(
       @RequestBody Activity activity, Principal principal)
       throws ApiException, JsonProcessingException {
@@ -98,7 +98,7 @@ public class ActivityController {
     return ResponseEntity.ok(activityRecord.get().toActivity(jsonMapper));
   }
 
-  @GetMapping("/")
+  @GetMapping(value = {"", "/"})
   public ResponseEntity<List<Activity>> listActivity(Principal principal)
       throws JsonProcessingException, ParamNotSet {
     List<Activity> activityList = new ArrayList<>();

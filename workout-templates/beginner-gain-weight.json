@@ -1,0 +1,83 @@
+{
+  "plan_name": "Beginner Muscle Gain Workout Plan",
+  "goal": "Gain Weight (Muscle Mass)",
+  "description": "A beginner-level workout plan focusing on building muscle mass.",
+  "duration_weeks": 12,
+  "workouts": [
+    {
+      "day": "Monday",
+      "exercises": [
+        {
+          "name": "Barbell Squats",
+          "sets": 4,
+          "reps": 8
+        },
+        {
+          "name": "Bench Press",
+          "sets": 4,
+          "reps": 8
+        },
+        {
+          "name": "Pull-ups",
+          "sets": 3,
+          "reps": 8
+        },
+        {
+          "name": "Overhead Press",
+          "sets": 3,
+          "reps": 8
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "exercises": [
+        {
+          "name": "Deadlifts",
+          "sets": 4,
+          "reps": 6
+        },
+        {
+          "name": "Barbell Rows",
+          "sets": 4,
+          "reps": 8
+        },
+        {
+          "name": "Dumbbell Lunges",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Dumbbell Shoulder Press",
+          "sets": 3,
+          "reps": 8
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "exercises": [
+        {
+          "name": "Leg Press",
+          "sets": 4,
+          "reps": 10
+        },
+        {
+          "name": "Incline Dumbbell Bench Press",
+          "sets": 4,
+          "reps": 8
+        },
+        {
+          "name": "Lat Pulldowns",
+          "sets": 3,
+          "reps": 10
+        },
+        {
+          "name": "Tricep Dips",
+          "sets": 3,
+          "reps": 10
+        }
+      ]
+    }
+  ]
+}

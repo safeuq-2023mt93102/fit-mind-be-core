@@ -25,9 +25,14 @@ public class RestExceptionHandler {
     return handleGenericException(exception);
   }
 
-  @ExceptionHandler({ApiException.class, ServletException.class})
+  @ExceptionHandler({ApiException.class})
   protected ResponseEntity<ErrorResponse> handleException(ApiException exception) {
     return ResponseEntity.badRequest().body(exception.toErrorResponse());
+  }
+
+  @ExceptionHandler({ServletException.class})
+  protected ResponseEntity<ErrorResponse> handleException(ServletException exception) {
+    return handleGenericException(exception);
   }
 
   @ExceptionHandler({Exception.class})

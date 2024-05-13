@@ -1,0 +1,78 @@
+{
+  "plan_name": "Advanced Fat Loss Workout Plan",
+  "goal": "Lose Weight (Fat Loss)",
+  "description": "An advanced-level workout plan designed to maximize fat burning and preserve muscle mass.",
+  "duration_weeks": 12,
+  "workouts": [
+    {
+      "day": "Monday",
+      "exercises": [
+        {
+          "name": "High-Intensity Interval Training (HIIT)",
+          "duration_minutes": 30
+        },
+        {
+          "name": "Deadlifts",
+          "sets": 4,
+          "reps": 8,
+          "weight": "70% of 1RM"
+        },
+        {
+          "name": "Dumbbell Lunges",
+          "sets": 4,
+          "reps": 10,
+          "weight": "Moderate"
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "exercises": [
+        {
+          "name": "Circuit Training",
+          "duration_minutes": 45,
+          "exercises": [
+            {
+              "name": "Jump Squats",
+              "reps": 15
+            },
+            {
+              "name": "Push-ups",
+              "reps": 15
+            },
+            {
+              "name": "Mountain Climbers",
+              "reps": 20
+            }
+          ]
+        },
+        {
+          "name": "Pull-ups",
+          "sets": 4,
+          "reps": 6,
+          "weight": "Bodyweight"
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "exercises": [
+        {
+          "name": "Steady-State Cardio (Running or Cycling)",
+          "duration_minutes": 45
+        },
+        {
+          "name": "Plank",
+          "duration_seconds": 60,
+          "sets": 3
+        },
+        {
+          "name": "Russian Twists",
+          "sets": 4,
+          "reps": 20,
+          "weight": "Moderate"
+        }
+      ]
+    }
+  ]
+}
