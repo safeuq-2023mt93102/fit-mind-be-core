@@ -3,6 +3,7 @@ package com.bits.group13.fitnesstracker;
 import com.bits.group13.fitnesstracker.model.ApiException;
 import com.bits.group13.fitnesstracker.model.ErrorResponse;
 import jakarta.servlet.ServletException;
+import java.util.Map;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,6 +43,9 @@ public class RestExceptionHandler {
 
   private ErrorResponse toInternalServerError(Exception exception) {
     LOGGER.error(exception.getMessage(), exception);
-    return new ErrorResponse("internal_server_error", exception.getMessage());
+    return new ErrorResponse(
+        "internal_server_error",
+        exception.getMessage(),
+        Map.of("stacktrace", exception.getStackTrace()[0]));
   }
 }

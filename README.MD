@@ -18,6 +18,37 @@
 * **Social Sharing:** Enable users to share their fitness achievements, goals, and progress on social media
   platforms to encourage accountability and motivate others.
 
+## Keycloak IAM Platform
+
+### Run Keycloak in docker
+
+The command to run is as follows
+```shell
+docker run -p 8090:8090 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:24.0.4 start-dev --http-port=8090
+```
+
+### Export/Import realm data
+
+If keycloak is running in a Docker container, you have to SSH into the container first
+```shell
+docker exec -it <docker-container-id> bash
+```
+
+Export `fitness-tracker` realm using the following command
+```shell
+opt/keycloak/bin/kc.sh export --dir /opt/keycloak/data/import --realm fitness-tracker --users realm_file
+```
+
+Import `fitness-tracker` realm using the following command
+```shell
+opt/keycloak/bin/kc.sh import --file /opt/keycloak/data/import/ fitness-tracker-realm.json
+```
+
+Again, in Docker, the command to export to local system is
+```shell
+docker cp 7bae07c1931a9bcdb56d44cfadd84ed9f05cb16f51e30c8c0be04f8b97dfe08b:/opt/keycloak/data/import/fitness-tracker-realm.json <path-in-your-system>/fitness-tracker-realm.json
+```
+
 ## API Shape:
 ### User Authentication:
 - `POST /users` - Create a user
