@@ -36,11 +36,6 @@ public class UserController {
     this.userRepository = userRepository;
   }
 
-  //  @PostMapping("/users")
-  //  public ResponseEntity<User> createUser(@RequestBody User user) throws ApiException {
-  //    return ResponseEntity.ok().body(createUserInternal(user));
-  //  }
-
   public User createRootUserInternal(User user)
       throws ParamNotSet, ParamNotUnique, ParamNotEditable {
     String rootUserId = "user-" + UUID.randomUUID();

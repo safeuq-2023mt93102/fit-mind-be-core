@@ -1,7 +1,8 @@
 package com.bits.group13.fitnesstracker.security;
 
-import com.bits.group13.fitnesstracker.security.keycloak.KeycloakAuthority;
+import com.bits.group13.fitnesstracker.security.keycloak.KeycloakAuthorityFactory;
 import com.bits.group13.fitnesstracker.security.keycloak.KeycloakAuthorizationManager;
+import com.bits.group13.fitnesstracker.security.keycloak.KeycloakConfig;
 import com.bits.group13.fitnesstracker.security.keycloak.KeycloakLogoutHandler;
 import java.util.Collection;
 import java.util.HashSet;
@@ -11,6 +12,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,6 +27,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
 import org.springframework.security.web.authentication.session.SessionAuthenticationStrategy;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.stereotype.Component;
 
 @Configuration
 @EnableWebSecurity
@@ -133,20 +136,20 @@ public class SecurityConfig {
   //  }
 
   @Bean
-  public Converter<Jwt, Collection<GrantedAuthority>> grantedAuthorityConverter() {
-    return new KeycloakGrantedAuthorityConverter();
+  public KeycloakAuthorityFactory keycloakAuthorityFactory(KeycloakConfig keycloakConfig) {
+    return new KeycloakAuthorityFactory(keycloakConfig.getClientId());
   }
 
-  Collection<GrantedAuthority> generateAuthoritiesFromClaim(
-      Collection<String> roles, String client) {
-    return roles.stream()
-        .map(value -> KeycloakAuthority.parseFrom(value, client))
-        .filter(Objects::nonNull)
-        .collect(Collectors.toList());
-  }
-
-  private class KeycloakGrantedAuthorityConverter
+  @Component
+  public static class KeycloakGrantedAuthorityConverter
       implements Converter<Jwt, Collection<GrantedAuthority>> {
+
+    private final KeycloakAuthorityFactory keycloakAuthorityFactory;
+
+    public KeycloakGrantedAuthorityConverter(KeycloakAuthorityFactory keycloakAuthorityFactory) {
+      this.keycloakAuthorityFactory = keycloakAuthorityFactory;
+    }
+
     @Override
     public Collection<GrantedAuthority> convert(Jwt jwt) {
       Set<GrantedAuthority> mappedAuthorities = new HashSet<>();
@@ -167,6 +170,14 @@ public class SecurityConfig {
         mappedAuthorities.addAll(generateAuthoritiesFromClaim(roles, null));
       }
       return mappedAuthorities;
+    }
+
+    private Collection<GrantedAuthority> generateAuthoritiesFromClaim(
+        Collection<String> roles, String client) {
+      return roles.stream()
+          .map(value -> keycloakAuthorityFactory.parseFrom(value, client))
+          .filter(Objects::nonNull)
+          .collect(Collectors.toList());
     }
   }
 }

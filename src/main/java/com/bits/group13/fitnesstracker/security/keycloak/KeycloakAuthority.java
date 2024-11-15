@@ -6,14 +6,13 @@ import org.springframework.security.core.GrantedAuthority;
 public enum KeycloakAuthority implements GrantedAuthority {
   USER("user");
 
-  private static final String ROLE_NAME_PREFIX = "fitness-tracker-";
   private static final ValueParser<KeycloakAuthority, String> PARSER =
       ValueParser.of(KeycloakAuthority.class, KeycloakAuthority::getAuthority);
 
   private final String role;
 
   KeycloakAuthority(String roleName) {
-    this.role = ROLE_NAME_PREFIX + roleName;
+    this.role = roleName;
   }
 
   @Override
@@ -21,10 +20,7 @@ public enum KeycloakAuthority implements GrantedAuthority {
     return role;
   }
 
-  public static KeycloakAuthority parseFrom(String value, String client) {
-    if (client != null) {
-      value = client + "-" + value;
-    }
+  public static KeycloakAuthority parseFrom(String value) {
     return PARSER.parse(value);
   }
 }
