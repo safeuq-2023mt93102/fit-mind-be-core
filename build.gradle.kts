@@ -44,7 +44,7 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 
   implementation("org.keycloak:keycloak-admin-client:24.0.4")
-
+  implementation("org.springframework.boot:spring-boot-starter-actuator")
 
   compileOnly("org.projectlombok:lombok")
   developmentOnly("org.springframework.boot:spring-boot-devtools")

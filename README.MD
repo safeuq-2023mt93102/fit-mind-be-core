@@ -49,6 +49,11 @@ Again, in Docker, the command to export to local system is
 docker cp 7bae07c1931a9bcdb56d44cfadd84ed9f05cb16f51e30c8c0be04f8b97dfe08b:/opt/keycloak/data/import/fitness-tracker-realm.json <path-in-your-system>/fitness-tracker-realm.json
 ```
 
+### Client scopes
+
+To map `userId` passed during Keycloak user creation back to the Principal object, we need to add a mapper to the `profile` client scope.
+[Reference](https://medium.com/@lakshminp/adding-user-attributes-to-jwt-token-in-keycloak-f3981b7df310)
+
 ## API Shape:
 ### User Authentication:
 - `POST /users` - Create a user

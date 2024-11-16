@@ -7,12 +7,15 @@ import com.bits.group13.fitnesstracker.model.ApiException.ParamNotSet;
 import com.bits.group13.fitnesstracker.model.ApiException.ParamNotUnique;
 import com.bits.group13.fitnesstracker.model.User;
 import com.bits.group13.fitnesstracker.repository.UserRepository;
+
 import java.security.Principal;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+import com.bits.group13.fitnesstracker.security.SecurityUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,7 +70,7 @@ public class UserController {
   @GetMapping("/{id}")
   public ResponseEntity<User> getUser(@PathVariable("id") String userId, Principal principal) {
     return userRepository
-        .findByIdAndOwnerId(userId, principal.getName())
+        .findByIdAndOwnerId(userId, SecurityUtil.getOwnerId(principal))
         .map(userRecord -> ResponseEntity.ok(userRecord.toUser()))
         .orElseGet(() -> ResponseEntity.notFound().build());
   }
@@ -75,7 +78,7 @@ public class UserController {
   @GetMapping("/")
   public ResponseEntity<List<User>> getUsers(Principal principal) {
     return ResponseEntity.ok(
-        userRepository.findAllByOwnerId(principal.getName()).stream()
+        userRepository.findAllByOwnerId(SecurityUtil.getOwnerId(principal)).stream()
             .map(UserRecord::toUser)
             .collect(Collectors.toList()));
   }
@@ -84,7 +87,7 @@ public class UserController {
   public ResponseEntity<?> updateUser(
       @PathVariable String id, @RequestBody User user, Principal principal) {
     Optional<UserRecord> oldUserOptional =
-        userRepository.findByIdAndOwnerId(id, principal.getName());
+        userRepository.findByIdAndOwnerId(id, SecurityUtil.getOwnerId(principal));
     if (oldUserOptional.isEmpty()) {
       return ResponseEntity.notFound().build();
     }

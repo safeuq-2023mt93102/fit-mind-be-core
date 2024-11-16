@@ -5,6 +5,7 @@ import com.bits.group13.fitnesstracker.model.Identity;
 import com.bits.group13.fitnesstracker.model.User;
 import jakarta.ws.rs.core.Response;
 import java.util.Collections;
+import org.apache.commons.lang3.StringUtils;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
@@ -37,9 +38,13 @@ public class AuthController {
     if (givenUser == null) {
       throw new ApiException.ParamNotSet("user");
     }
+    String password = identity.getPassword();
+    if (StringUtils.isEmpty(password)) {
+      throw new ApiException.ParamNotSet("password");
+    }
     User user = userController.createRootUserInternal(givenUser);
 
-    CredentialRepresentation credential = createPasswordCredentials(identity.getPassword());
+    CredentialRepresentation credential = createPasswordCredentials(password);
     UserRepresentation userRepresentation = new UserRepresentation();
     userRepresentation.setUsername(user.getEmail());
     userRepresentation.setFirstName(user.getFirstName());

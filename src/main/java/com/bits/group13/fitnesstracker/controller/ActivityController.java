@@ -12,6 +12,7 @@ import com.bits.group13.fitnesstracker.model.activity.ActivitySource;
 import com.bits.group13.fitnesstracker.model.activity.metadata.CyclingActivity;
 import com.bits.group13.fitnesstracker.model.activity.metadata.WalkingActivity;
 import com.bits.group13.fitnesstracker.repository.ActivityRepository;
+import com.bits.group13.fitnesstracker.security.SecurityUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import java.security.Principal;
@@ -23,6 +24,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -82,7 +85,8 @@ public class ActivityController {
       }
     }
     ActivityRecord savedActivity =
-        activityRepository.save(activity.toActivityRecord(jsonMapper, principal.getName()));
+        activityRepository.save(
+            activity.toActivityRecord(jsonMapper, SecurityUtil.getOwnerId(principal)));
     return ResponseEntity.ok().body(savedActivity.toActivity(jsonMapper));
   }
 
@@ -90,8 +94,11 @@ public class ActivityController {
   public ResponseEntity<Activity> getActivity(
       @PathVariable("id") String activityId, Principal principal)
       throws JsonProcessingException, ParamNotSet {
+    final DefaultOidcUser user =
+        (DefaultOidcUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     Optional<ActivityRecord> activityRecord =
-        activityRepository.findByIdAndOwnerIdOrderByCreatedDesc(activityId, principal.getName());
+        activityRepository.findByIdAndOwnerIdOrderByCreatedDesc(
+            activityId, SecurityUtil.getOwnerId(principal));
     if (activityRecord.isEmpty()) {
       return ResponseEntity.notFound().build();
     }
@@ -103,7 +110,8 @@ public class ActivityController {
       throws JsonProcessingException, ParamNotSet {
     List<Activity> activityList = new ArrayList<>();
     for (ActivityRecord activityRecord :
-        activityRepository.findAllByOwnerIdOrderByCreatedDesc(principal.getName())) {
+        activityRepository.findAllByOwnerIdOrderByCreatedDesc(
+            SecurityUtil.getOwnerId(principal))) {
       activityList.add(activityRecord.toActivity(jsonMapper));
     }
     return ResponseEntity.ok(activityList);
@@ -114,7 +122,8 @@ public class ActivityController {
       @PathVariable String id, @RequestBody Activity user, Principal principal)
       throws JsonProcessingException {
     Optional<ActivityRecord> oldUserOptional =
-        activityRepository.findByIdAndOwnerIdOrderByCreatedDesc(id, principal.getName());
+        activityRepository.findByIdAndOwnerIdOrderByCreatedDesc(
+            id, SecurityUtil.getOwnerId(principal));
     if (oldUserOptional.isEmpty()) {
       return ResponseEntity.notFound().build();
     }
@@ -125,7 +134,7 @@ public class ActivityController {
     }
     ActivityRecord savedUser =
         activityRepository.save(
-            user.toActivityRecord(jsonMapper, principal.getName(), oldActivity));
+            user.toActivityRecord(jsonMapper, SecurityUtil.getOwnerId(principal), oldActivity));
     return ResponseEntity.ok().body(savedUser);
   }
 }
