@@ -1,0 +1,120 @@
+{
+  "id": "126",
+  "name": "Advanced Fat Loss Workout Plan",
+  "duration": "P84D",
+  "workouts": [
+    {
+      "day": "2024-05-13",
+      "exercises": [
+        {
+          "id": "126-1",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "HIIT",
+            "duration": "PT30M"
+          }
+        },
+        {
+          "id": "126-2",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "DEADLIFTS",
+            "sets": 4,
+            "repetitions": 8,
+            "weight": "70% of 1RM"
+          }
+        },
+        {
+          "id": "126-3",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "DUMBBELL_LUNGES",
+            "sets": 4,
+            "repetitions": 10,
+            "weight": "Moderate"
+          }
+        }
+      ]
+    },
+    {
+      "day": "2024-05-15",
+      "exercises": [
+        {
+          "id": "126-4",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "CIRCUIT",
+            "duration": "PT45M",
+            "exercises": [
+              {
+                "id": "126-4-1",
+                "type": "JUMP_SQUATS",
+                "repetitions": 15
+              },
+              {
+                "id": "126-4-2",
+                "type": "PUSH_UPS",
+                "repetitions": 15
+              },
+              {
+                "id": "126-4-3",
+                "type": "MOUNTAIN_CLIMBERS",
+                "repetitions": 20
+              }
+            ]
+          }
+        },
+        {
+          "id": "126-5",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "PULL_UPS",
+            "sets": 4,
+            "repetitions": 6,
+            "weight": "Bodyweight"
+          }
+        }
+      ]
+    },
+    {
+      "day": "2024-05-17",
+      "exercises": [
+        {
+          "id": "126-6",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "STEADY_STATE_CARDIO",
+            "duration": "PT45M"
+          }
+        },
+        {
+          "id": "126-7",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "PLANK",
+            "sets": 3,
+            "duration": "PT60S"
+          }
+        },
+        {
+          "id": "126-8",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "RUSSIAN_TWISTS",
+            "sets": 4,
+            "repetitions": 20,
+            "weight": "Moderate"
+          }
+        }
+      ]
+    }
+  ]
+} 

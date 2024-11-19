@@ -5,7 +5,7 @@ import com.bits.group13.fitnesstracker.model.activity.ActivityType;
 
 public class SleepActivity implements ActivityMetadata {
   @Override
-  public ActivityType getType() {
+  public ActivityType getActivityType() {
     return ActivityType.SLEEP;
   }
 }

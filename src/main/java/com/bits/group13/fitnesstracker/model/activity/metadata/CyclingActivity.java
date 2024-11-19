@@ -31,7 +31,7 @@ public class CyclingActivity implements ActivityMetadata {
   }
 
   @Override
-  public ActivityType getType() {
+  public ActivityType getActivityType() {
     return ActivityType.CYCLING;
   }
 }

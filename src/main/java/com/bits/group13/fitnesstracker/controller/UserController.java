@@ -7,15 +7,13 @@ import com.bits.group13.fitnesstracker.model.ApiException.ParamNotSet;
 import com.bits.group13.fitnesstracker.model.ApiException.ParamNotUnique;
 import com.bits.group13.fitnesstracker.model.User;
 import com.bits.group13.fitnesstracker.repository.UserRepository;
-
+import com.bits.group13.fitnesstracker.security.SecurityUtil;
 import java.security.Principal;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
-import com.bits.group13.fitnesstracker.security.SecurityUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

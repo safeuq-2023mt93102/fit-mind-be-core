@@ -42,7 +42,7 @@ public final class Activity {
     return ActivityRecord.of(
         id,
         ownerId,
-        data.getType(),
+        data.getActivityType(),
         jsonMapper.writeValueAsString(data),
         source.getType(),
         source.getProvider());

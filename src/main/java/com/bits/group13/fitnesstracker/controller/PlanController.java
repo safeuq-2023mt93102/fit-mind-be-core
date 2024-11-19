@@ -96,25 +96,21 @@ public class PlanController {
   }
 
   private Plan readPlan(PlanRequest planRequest) throws IOException {
-    switch (planRequest.getLevel()) {
-      case BEGINNER -> {
-        switch (planRequest.getTarget()) {
-          case GAIN_WEIGHT -> {
-            return jsonMapper.readValue(
-                ClassLoader.getSystemResourceAsStream("workout_template/beginner-gain-weight.json"),
-                Plan.class);
-          }
-          case LOSE_WEIGHT -> {}
-        }
-      }
-      case ADVANCED -> {
-        switch (planRequest.getTarget()) {
-          case GAIN_WEIGHT -> {}
-          case LOSE_WEIGHT -> {}
-        }
-      }
-    }
-    throw new IllegalArgumentException();
+    String templatePath =
+        switch (planRequest.getLevel()) {
+          case BEGINNER ->
+              switch (planRequest.getTarget()) {
+                case GAIN_WEIGHT -> "workout_template/beginner-gain-weight.json";
+                case LOSE_WEIGHT -> "workout_template/beginner-lose-weight.json";
+              };
+          case ADVANCED ->
+              switch (planRequest.getTarget()) {
+                case GAIN_WEIGHT -> "workout_template/advanced-gain-weight.json";
+                case LOSE_WEIGHT -> "workout_template/advanced-lose-weight.json";
+              };
+        };
+
+    return jsonMapper.readValue(ClassLoader.getSystemResourceAsStream(templatePath), Plan.class);
   }
 
   //  @PostMapping("/plan/{id}")

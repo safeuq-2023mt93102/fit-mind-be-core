@@ -24,8 +24,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,7 +51,7 @@ public class ActivityController {
     if (activity.getData() == null) {
       throw new ParamNotSet("data");
     }
-    switch (activity.getData().getType()) {
+    switch (activity.getData().getActivityType()) {
       case WALKING -> {
         WalkingActivity walkingActivity = (WalkingActivity) activity.getData();
         if (walkingActivity.getSteps() <= 0) {
@@ -94,8 +92,6 @@ public class ActivityController {
   public ResponseEntity<Activity> getActivity(
       @PathVariable("id") String activityId, Principal principal)
       throws JsonProcessingException, ParamNotSet {
-    final DefaultOidcUser user =
-        (DefaultOidcUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     Optional<ActivityRecord> activityRecord =
         activityRepository.findByIdAndOwnerIdOrderByCreatedDesc(
             activityId, SecurityUtil.getOwnerId(principal));
@@ -110,8 +106,7 @@ public class ActivityController {
       throws JsonProcessingException, ParamNotSet {
     List<Activity> activityList = new ArrayList<>();
     for (ActivityRecord activityRecord :
-        activityRepository.findAllByOwnerIdOrderByCreatedDesc(
-            SecurityUtil.getOwnerId(principal))) {
+        activityRepository.findAllByOwnerIdOrderByCreatedDesc(SecurityUtil.getOwnerId(principal))) {
       activityList.add(activityRecord.toActivity(jsonMapper));
     }
     return ResponseEntity.ok(activityList);

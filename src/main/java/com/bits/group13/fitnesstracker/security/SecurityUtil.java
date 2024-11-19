@@ -1,8 +1,7 @@
 package com.bits.group13.fitnesstracker.security;
 
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
-
 import java.security.Principal;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 
 public class SecurityUtil {
   public static String getOwnerId(Principal principal) {

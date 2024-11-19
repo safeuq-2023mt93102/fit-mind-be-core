@@ -1,0 +1,130 @@
+{
+  "id": "124",
+  "name": "Advanced Muscle Gain Workout Plan",
+  "duration": "P112D",
+  "workouts": [
+    {
+      "day": "2024-05-13",
+      "exercises": [
+        {
+          "id": "124-1",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "BACK_SQUATS",
+            "sets": 5,
+            "repetitions": 5,
+            "weight": "80% of 1RM"
+          }
+        },
+        {
+          "id": "124-2",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "DEADLIFTS",
+            "sets": 5,
+            "repetitions": 5,
+            "weight": "80% of 1RM"
+          }
+        },
+        {
+          "id": "124-3",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "BENCH_PRESS",
+            "sets": 5,
+            "repetitions": 5,
+            "weight": "80% of 1RM"
+          }
+        }
+      ]
+    },
+    {
+      "day": "2024-05-15",
+      "exercises": [
+        {
+          "id": "124-4",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "FRONT_SQUATS",
+            "sets": 4,
+            "repetitions": 6,
+            "weight": "75% of 1RM"
+          }
+        },
+        {
+          "id": "124-5",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "ROMANIAN_DEADLIFTS",
+            "sets": 4,
+            "repetitions": 6,
+            "weight": "75% of 1RM"
+          }
+        },
+        {
+          "id": "124-6",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "INCLINE_BENCH_PRESS",
+            "sets": 4,
+            "repetitions": 6,
+            "weight": "75% of 1RM"
+          }
+        }
+      ]
+    },
+    {
+      "day": "2024-05-17",
+      "exercises": [
+        {
+          "id": "124-7",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "OVERHEAD_PRESS",
+            "sets": 5,
+            "repetitions": 5,
+            "weight": "80% of 1RM"
+          }
+        },
+        {
+          "id": "124-8",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "PULL_UPS",
+            "sets": 5,
+            "repetitions": 5,
+            "weight": "Bodyweight"
+          }
+        },
+        {
+          "id": "124-9",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "BARBELL_ROWS",
+            "sets": 5,
+            "repetitions": 5,
+            "weight": "80% of 1RM"
+          }
+        }
+      ]
+    }
+  ]
+} 

@@ -1,4 +1,4 @@
-rootProject.name = "fitness-tracker-backend"
+rootProject.name = "fit-mind-be-users"
 
 dependencyResolutionManagement {
   versionCatalogs {

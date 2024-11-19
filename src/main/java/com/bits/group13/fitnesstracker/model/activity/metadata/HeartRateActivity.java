@@ -5,7 +5,7 @@ import com.bits.group13.fitnesstracker.model.activity.ActivityType;
 
 public class HeartRateActivity implements ActivityMetadata {
   @Override
-  public ActivityType getType() {
+  public ActivityType getActivityType() {
     return ActivityType.HEART_RATE;
   }
 }
