@@ -7,19 +7,19 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class ExerciseGoal implements GoalMetadata {
-  private final ExerciseType type;
+  private final ExerciseType exercise;
   private final Long sets;
   private final Long repetitions;
   private final Duration duration;
   private final List<ExerciseGoal> exercises;
 
   private ExerciseGoal(
-      ExerciseType type,
+      ExerciseType exercise,
       Long sets,
       Long repetitions,
       Duration duration,
       List<ExerciseGoal> exercises) {
-    this.type = type;
+    this.exercise = exercise;
     this.sets = sets;
     this.repetitions = repetitions;
     this.duration = duration;
@@ -28,17 +28,17 @@ public class ExerciseGoal implements GoalMetadata {
 
   @JsonCreator
   public static ExerciseGoal of(
-      @JsonProperty("type") ExerciseType type,
+      @JsonProperty("exercise") ExerciseType exercise,
       @JsonProperty("sets") Long sets,
       @JsonProperty("repetitions") Long repetitions,
       @JsonProperty("duration") Duration duration,
       @JsonProperty("exercises") List<ExerciseGoal> exercises) {
-    return new ExerciseGoal(type, sets, repetitions, duration, exercises);
+    return new ExerciseGoal(exercise, sets, repetitions, duration, exercises);
   }
 
-  @JsonProperty("type")
-  public ExerciseType getType() {
-    return type;
+  @JsonProperty("exercise")
+  public ExerciseType getExercise() {
+    return exercise;
   }
 
   @JsonProperty("sets")
@@ -69,8 +69,8 @@ public class ExerciseGoal implements GoalMetadata {
   @Override
   public String toString() {
     StringJoiner result = new StringJoiner(", ", "{", "}");
-    if (type != null) {
-      result.add("\"type\": " + "\"" + type + "\"");
+    if (exercise != null) {
+      result.add("\"exercise\": " + "\"" + exercise + "\"");
     }
     if (sets != null) {
       result.add("\"sets\": " + sets);
