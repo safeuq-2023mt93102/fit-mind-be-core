@@ -1,0 +1,151 @@
+{
+  "id": "125",
+  "name": "Beginner Fat Loss Workout Plan",
+  "duration": "P56D",
+  "workouts": [
+    {
+      "day": "2024-05-13",
+      "exercises": [
+        {
+          "id": "125-1",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "CARDIO",
+            "duration": "PT30M"
+          }
+        },
+        {
+          "id": "125-2",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "BODY_WEIGHT_SQUATS",
+            "sets": 3,
+            "repetitions": 12
+          }
+        },
+        {
+          "id": "125-3",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "PUSH_UPS",
+            "sets": 3,
+            "repetitions": 10
+          }
+        },
+        {
+          "id": "125-4",
+          "day": "2024-05-13",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "PLANK",
+            "sets": 3,
+            "duration": "PT45S"
+          }
+        }
+      ]
+    },
+    {
+      "day": "2024-05-15",
+      "exercises": [
+        {
+          "id": "125-5",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "INTERVAL_TRAINING",
+            "duration": "PT25M"
+          }
+        },
+        {
+          "id": "125-6",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "JUMPING_JACKS",
+            "sets": 3,
+            "repetitions": 20
+          }
+        },
+        {
+          "id": "125-7",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "MOUNTAIN_CLIMBERS",
+            "sets": 3,
+            "repetitions": 15
+          }
+        },
+        {
+          "id": "125-8",
+          "day": "2024-05-15",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "RUSSIAN_TWISTS",
+            "sets": 3,
+            "repetitions": 15
+          }
+        }
+      ]
+    },
+    {
+      "day": "2024-05-17",
+      "exercises": [
+        {
+          "id": "125-9",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "CARDIO",
+            "duration": "PT30M"
+          }
+        },
+        {
+          "id": "125-10",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "BURPEES",
+            "sets": 3,
+            "repetitions": 10
+          }
+        },
+        {
+          "id": "125-11",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "DUMBBELL_LUNGES",
+            "sets": 3,
+            "repetitions": 12
+          }
+        },
+        {
+          "id": "125-12",
+          "day": "2024-05-17",
+          "completed": false,
+          "data": {
+            "type": "EXERCISE",
+            "exercise": "PLANK",
+            "sets": 3,
+            "duration": "PT60S"
+          }
+        }
+      ]
+    }
+  ]
+}
