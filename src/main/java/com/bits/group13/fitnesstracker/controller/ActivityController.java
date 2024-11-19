@@ -51,7 +51,7 @@ public class ActivityController {
     if (activity.getData() == null) {
       throw new ParamNotSet("data");
     }
-    switch (activity.getData().getActivityType()) {
+    switch (activity.getData().getType()) {
       case WALKING -> {
         WalkingActivity walkingActivity = (WalkingActivity) activity.getData();
         if (walkingActivity.getSteps() <= 0) {

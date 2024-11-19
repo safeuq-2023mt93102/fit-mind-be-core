@@ -23,7 +23,7 @@ public final class Goal {
     JsonMapper jsonMapper = JsonMapper.builder().findAndAddModules().build();
     Plan plan =
         jsonMapper.readValue(
-            ClassLoader.getSystemResourceAsStream("workout_template/beginner-gain-weight.json"),
+            ClassLoader.getSystemResourceAsStream("workout_template/beginner-lose-weight.json"),
             Plan.class);
     System.out.println(plan);
     System.out.println(jsonMapper.writerWithDefaultPrettyPrinter().writeValueAsString(plan));
@@ -79,7 +79,7 @@ public final class Goal {
       result.add("\"id\": " + "\"" + id + "\"");
     }
     if (day != null) {
-      result.add("\"day\": " + day);
+      result.add("\"day\": " + "\"" + day + "\"");
     }
     result.add("\"completed\": " + completed);
     if (data != null) {

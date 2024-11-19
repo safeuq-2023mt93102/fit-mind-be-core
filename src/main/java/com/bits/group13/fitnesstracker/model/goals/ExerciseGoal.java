@@ -62,7 +62,7 @@ public class ExerciseGoal implements GoalMetadata {
   }
 
   @Override
-  public GoalType getActivityType() {
+  public GoalType getType() {
     return GoalType.EXERCISE;
   }
 

@@ -63,7 +63,7 @@ public final class Plan {
       result.add("\"plan_name\": " + "\"" + planName + "\"");
     }
     if (duration != null) {
-      result.add("\"duration\": " + duration);
+      result.add("\"duration\": " + "\"" + duration + "\"");
     }
     if (workouts != null) {
       result.add("\"workouts\": " + workouts);

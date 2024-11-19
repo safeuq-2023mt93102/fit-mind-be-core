@@ -48,7 +48,7 @@ public class PlanWorkout {
   public String toString() {
     StringJoiner result = new StringJoiner(", ", "{", "}");
     if (day != null) {
-      result.add("\"day\": " + day);
+      result.add("\"day\": " + "\"" + day + "\"");
     }
     if (exercises != null) {
       result.add("\"exercises\": " + exercises);

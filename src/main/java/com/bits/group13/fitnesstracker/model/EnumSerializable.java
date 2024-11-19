@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public interface EnumSerializable {
   @JsonProperty("type")
-  public Type<?> getActivityType();
+  public Type<?> getType();
 
   interface Type<T extends Enum<T>> {
     Class<? extends EnumSerializable> getTypeClass();

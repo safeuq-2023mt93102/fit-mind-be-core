@@ -57,7 +57,7 @@ public class EnumDeserializers extends Deserializers.Base {
     @SuppressWarnings({"unchecked", "rawtypes"})
     public EnumSerializable deserialize(JsonParser parser, DeserializationContext context)
         throws IOException {
-      Class<?> enumReturnType = handledType().getDeclaredMethod("getActivityType").getReturnType();
+      Class<?> enumReturnType = handledType().getDeclaredMethod("getType").getReturnType();
       if (!enumReturnType.isEnum()) {
         throw new JsonParseException(
             "Expected " + handledType().getSimpleName() + ".getType to have an Enum return type");

@@ -24,7 +24,7 @@ public class WalkingActivity implements ActivityMetadata {
   }
 
   @Override
-  public ActivityType getActivityType() {
+  public ActivityType getType() {
     return ActivityType.WALKING;
   }
 
