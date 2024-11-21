@@ -9,6 +9,8 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -27,28 +29,29 @@ public class GoalsController {
   }
 
   @PostMapping("/goals")
-  public ResponseEntity<?> createGoal(@RequestBody Goal goal)
-      throws ApiException, JsonProcessingException {
-    //    if (StringUtils.isEmpty(goal.type())) {
-    //      throw new ApiException.ParamNotSet("type");
-    //    }
+  public ResponseEntity<Goal> createGoal(@RequestBody Goal goal)
+      throws JsonProcessingException {
     GoalRecord savedGoal = goalsRepository.save(goal.toGoalRecord(null, jsonMapper));
-    return ResponseEntity.ok().body(savedGoal);
+    return ResponseEntity.ok().body(savedGoal.toGoal(jsonMapper));
   }
 
   @PostMapping("/goals/{id}")
-  public ResponseEntity<?> updateGoal(@PathVariable("id") String id, @RequestBody Goal goal)
+  public ResponseEntity<Goal> updateGoal(@PathVariable("id") String id, @RequestBody Goal goal)
       throws JsonProcessingException {
     Optional<GoalRecord> oldRecord = goalsRepository.findById(id);
     if (oldRecord.isEmpty()) {
       return ResponseEntity.notFound().build();
     }
-    GoalRecord savedRecord = goalsRepository.save(goal.toGoalRecord(null, jsonMapper));
-    return ResponseEntity.ok().body(savedRecord);
+    GoalRecord oldGoalRecord = oldRecord.get();
+    Goal oldGoad = oldGoalRecord.toGoal(jsonMapper);
+    GoalRecord savedRecord =
+        goalsRepository.save(
+            oldGoad.mergeFrom(goal).toGoalRecord(oldGoalRecord.getWorkoutId(), jsonMapper));
+    return ResponseEntity.ok().body(savedRecord.toGoal(jsonMapper));
   }
 
   @GetMapping("/goals")
-  public ResponseEntity<Iterable<?>> getGoals() {
+  public ResponseEntity<Iterable<Goal>> getGoals() {
     Iterable<GoalRecord> records = goalsRepository.findAll();
     return ResponseEntity.ok()
         .body(

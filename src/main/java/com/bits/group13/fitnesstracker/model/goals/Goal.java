@@ -1,14 +1,12 @@
 package com.bits.group13.fitnesstracker.model.goals;
 
 import com.bits.group13.fitnesstracker.database.GoalRecord;
-import com.bits.group13.fitnesstracker.model.plan.Plan;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.StringJoiner;
 
@@ -16,24 +14,14 @@ import java.util.StringJoiner;
 public final class Goal {
   private final String id;
   private final LocalDate day;
-  private final boolean completed;
+  private final Boolean completed;
   private final GoalMetadata data;
-
-  public static void main(String[] args) throws IOException {
-    JsonMapper jsonMapper = JsonMapper.builder().findAndAddModules().build();
-    Plan plan =
-        jsonMapper.readValue(
-            ClassLoader.getSystemResourceAsStream("workout_template/beginner-lose-weight.json"),
-            Plan.class);
-    System.out.println(plan);
-    System.out.println(jsonMapper.writerWithDefaultPrettyPrinter().writeValueAsString(plan));
-  }
 
   @JsonCreator
   public Goal(
       @JsonProperty("id") String id,
       @JsonProperty("day") LocalDate day,
-      @JsonProperty("completed") boolean completed,
+      @JsonProperty("completed") Boolean completed,
       @JsonProperty("data") GoalMetadata data) {
     this.id = id;
     this.day = day;
@@ -90,5 +78,9 @@ public final class Goal {
 
   public Goal withDay(LocalDate localDate) {
     return new Goal(id, localDate, completed, data);
+  }
+
+  public Goal mergeFrom(Goal newGoal) {
+    return new Goal(id, day, newGoal.completed != null ? newGoal.completed : completed, data);
   }
 }
