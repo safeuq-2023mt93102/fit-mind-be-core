@@ -5,7 +5,6 @@ services:
     image: fitmind/core-be:latest
     ports:
       - "8081:8081"
-      - "5005:5005"
     environment:
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
       - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
@@ -25,6 +24,21 @@ services:
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
       - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
       - KEYCLOAK_SERVICE_URL=http://fit-mind-keycloak:8090
+    networks:
+      - fit-mind-network
+    depends_on:
+      keycloak:
+        condition: service_healthy
+
+  frontend:
+    container_name: fit-mind-fe
+    image: fit-mind-fe:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - CORE_BE_URL=http://fit-mind-core-be:8081
+      - USERS_BE_URL=http://fit-mind-users-be:8082
+      - NEXTAUTH_URL=http://fit-mind-fe:3000
     networks:
       - fit-mind-network
     depends_on:
