@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-  implementation("com.bits.ss.fitmind:fit-mind-commons-api:0.0.1-SNAPSHOT")
+  implementation(project(":fit-mind-commons-api"))
 
   implementation(libs.jackson.annotations)
   implementation(libs.apache.commons.lang3)

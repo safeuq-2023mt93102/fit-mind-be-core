@@ -1,4 +1,4 @@
-rootProject.name = "fit-mind-be-core"
+rootProject.name = "fit-mind-be"
 
 include("fit-mind-commons")
 include("fit-mind-commons-api")

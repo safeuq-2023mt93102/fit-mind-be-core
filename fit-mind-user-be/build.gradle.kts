@@ -8,13 +8,13 @@ plugins {
 }
 
 dependencies {
+  implementation(project(":fit-mind-commons"))
+  implementation(project(":fit-mind-commons-api"))
   implementation(project(":fit-mind-user-api"))
 
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
-  implementation("com.bits.ss.fitmind:fit-mind-commons:0.0.1-SNAPSHOT")
-  implementation("com.bits.ss.fitmind:fit-mind-commons-api:0.0.1-SNAPSHOT")
   implementation(libs.apache.commons.lang3)
   implementation(libs.jackson.databind)
   implementation(libs.jakarta.ws.rs.api)
