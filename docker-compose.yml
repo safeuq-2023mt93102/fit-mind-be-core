@@ -30,7 +30,7 @@ services:
     networks:
       - fit-mind-network
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8090/health || exit 1"]
+      test: ["CMD", "curl", "--head", "-fsS", "http://localhost:8090/health/ready"]
       interval: 30s
       timeout: 10s
       retries: 3

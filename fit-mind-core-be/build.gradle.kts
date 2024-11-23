@@ -14,9 +14,8 @@ dependencies {
 
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
   implementation("org.springframework.boot:spring-boot-starter-web")
-  implementation("org.springframework.boot:spring-boot-starter-actuator")
+  developmentOnly("org.springframework.boot:spring-boot-starter-actuator")
   developmentOnly("org.springframework.boot:spring-boot-devtools")
-  testImplementation("org.springframework.boot:spring-boot-starter-test")
 
   implementation("com.bits.ss.fitmind:fit-mind-user-api:0.0.1-SNAPSHOT")
   implementation(libs.vavr)
@@ -27,6 +26,8 @@ dependencies {
   implementation(libs.jakarta.ws.rs.api)
   implementation(libs.keycloak.admin.client)
   runtimeOnly("com.h2database:h2")
+
+  testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 jib {
