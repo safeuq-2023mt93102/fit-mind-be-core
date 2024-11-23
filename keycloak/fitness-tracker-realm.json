@@ -413,231 +413,6 @@
     "notBefore" : 0,
     "groups" : [ ]
   }, {
-    "id" : "4f5088c3-ce00-4d5d-a3fc-027475fce0aa",
-    "username" : "mohamedsafeuq+1@gmail.com",
-    "firstName" : "Safeuq",
-    "lastName" : "Mohamed",
-    "email" : "mohamedsafeuq+1@gmail.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-addbf86f-de50-48be-8041-769a2325120b" ]
-    },
-    "createdTimestamp" : 1715616378330,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "e00b0c55-8ed1-4fb3-8eb4-ca1ad99954e2",
-      "type" : "password",
-      "createdDate" : 1715616378522,
-      "secretData" : "{\"value\":\"ai57FgEIexpo2TrnyWqp42lakjODV3fj6YC0v1fgmwyVwFg5dlxX76DKhAnBJLKOq8APge64N+hNV44AO13ibQ==\",\"salt\":\"kVuDZtQN+4G7H86FP7eqjA==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "33d527f3-a594-48ed-a168-0ee16f32839a",
-    "username" : "mohamedsafeuq+2@gmail.com",
-    "firstName" : "Safeuq",
-    "lastName" : "Mohamed 2",
-    "email" : "mohamedsafeuq+2@gmail.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-d95e88b3-3076-4b72-a467-44bb5439d8c5" ]
-    },
-    "createdTimestamp" : 1715622854820,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "95d15298-fa84-4844-b3e3-6c21b1991601",
-      "type" : "password",
-      "createdDate" : 1715622855060,
-      "secretData" : "{\"value\":\"kYkV3LmJDLKP4s5GTDOiw43RzqXwS7FqOs8NbEPaY/D6qvkNzNZUov2J2qbrz5odo9jeKvUdHVDhGDNlZG0jjA==\",\"salt\":\"Wp7cLIGKlf0eTC7wvRPIBA==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "c3e8f69e-2bad-45a9-9d1b-a68199c666c0",
-    "username" : "mohamedsafeuq+3@gmail.com",
-    "firstName" : "Safeuq",
-    "lastName" : "Mohamed 2",
-    "email" : "mohamedsafeuq+3@gmail.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-11b2dca5-f14c-4907-ad27-4c0a4c532254" ]
-    },
-    "createdTimestamp" : 1731668885871,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "bfaa2dd6-cb66-4aa3-81f1-cd7758733ce4",
-      "type" : "password",
-      "createdDate" : 1731668886079,
-      "secretData" : "{\"value\":\"KThVM5wAPR1l6NoPFX8MqSCZINcAWpvoOgH5JZsIG9fr1dsNXZ682VLll+cs1DzjsG/VG/QusBb8fk1Gys7vfA==\",\"salt\":\"JGuY49p+kAKr0qSmYjcIFA==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "6d09fa0b-ee3d-4e15-b862-9bf0138a385d",
-    "username" : "safeuq+3@xflowpay.com",
-    "firstName" : "Mohamed",
-    "lastName" : "Safeuq J",
-    "email" : "safeuq+3@xflowpay.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-3f2fb854-8ad3-421f-960e-6d894e673ff2" ]
-    },
-    "createdTimestamp" : 1731689636527,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "ec19355e-87ee-4074-9126-cff5b177a8a6",
-      "type" : "password",
-      "createdDate" : 1731689636760,
-      "secretData" : "{\"value\":\"0/klU6Az5ptJ3eYG043ep5djjyp63WfQqGfzwWZF06bDB7gKBzqDWuzZ8CryZMqkLRhcZ52O6Q9HrVpTN5gJZA==\",\"salt\":\"fUpAFzZutBqTJWmK6DegnA==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "d6c88310-0bac-477d-86f4-1879c1f927d4",
-    "username" : "safeuq+4@xflowpay.com",
-    "firstName" : "Mohamed",
-    "lastName" : "Safeuq J",
-    "email" : "safeuq+4@xflowpay.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-0eed64bc-c950-4e54-9f99-f1d7be24df49" ]
-    },
-    "createdTimestamp" : 1731690437157,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "08d0031f-330b-49a5-bca9-90c35561ad45",
-      "type" : "password",
-      "createdDate" : 1731690437369,
-      "secretData" : "{\"value\":\"kkLcTCSV8/GxMJPotbeNU0ov7wdfaT3WGSDhJa4Sf7viwRQK+1H7QOBhQc3Ae+3ZQGjT6imAMZR3ex0eftiHfQ==\",\"salt\":\"5Mny5O97ZwAw7gEThsG7Xw==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "20eef2e8-2fb5-4f1e-8c1d-a11d97af7d33",
-    "username" : "safeuq+5@xflowpay.com",
-    "firstName" : "Mohamed",
-    "lastName" : "Safeuq J",
-    "email" : "safeuq+5@xflowpay.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-76ba1fdb-b46b-427d-a4d6-86921d6ee5df" ]
-    },
-    "createdTimestamp" : 1731742435301,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "84d95081-b961-4b95-80cd-1e066bd6541a",
-      "type" : "password",
-      "createdDate" : 1731742435512,
-      "secretData" : "{\"value\":\"KICyHaRmtwWUAZGkWyRDDAk09bzmmDH0YVzcpSnEtWnkPvBbMFttcKkKfWRxvcJHtDIgcocsW6XijJW1UlGnpw==\",\"salt\":\"gIPAXPfwk34Ltk+8jsqOXg==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "5a0d112a-2a6a-419d-8c56-c751bad38d40",
-    "username" : "safeuq+6@xflowpay.com",
-    "firstName" : "Mohamed",
-    "lastName" : "Safeuq J",
-    "email" : "safeuq+6@xflowpay.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-cbc92fc0-c999-4dd2-988c-a8717938189b" ]
-    },
-    "createdTimestamp" : 1731742561670,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "82149a07-4ee0-4967-a8c1-3ed7ab1164e0",
-      "type" : "password",
-      "createdDate" : 1731742561884,
-      "secretData" : "{\"value\":\"h8EpN5xnwMO/RbUXUdoEL4xLGhIv5uA8GFFArqYXZ9OSmhe1ZG4LLz263Bp6lXKf6wgo5WvLBkUOKb9E26Gclw==\",\"salt\":\"IewH3Yi4RCuQIptsenTcjg==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "1b94d21a-cdfa-4a7a-bfe2-06ca90d7824f",
-    "username" : "safeuq+7@xflowpay.com",
-    "firstName" : "Mohamed",
-    "lastName" : "Safeuq J",
-    "email" : "safeuq+7@xflowpay.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-61d3b4ae-975e-4494-8612-011fa6e59cfe" ]
-    },
-    "createdTimestamp" : 1731742657308,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "a3a16bf9-14e0-455a-a0e2-956ad404ffea",
-      "type" : "password",
-      "createdDate" : 1731742657516,
-      "secretData" : "{\"value\":\"fTdrjBfpdJxHc1m67XX/r1ihjAw0TazBR7j6FObk6ZY0ZsDy2TGv0iUS5xSN8vL0Pm0tLTaXjRZyKN2+jIpFzQ==\",\"salt\":\"oZaFtrGwsq7daJSjUZLTWQ==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "ffa262bc-2576-4583-90bc-b436d24583fc",
-    "username" : "safeuq+8@xflowpay.com",
-    "firstName" : "Mohamed",
-    "lastName" : "Safeuq J",
-    "email" : "safeuq+8@xflowpay.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-3d2dbd31-7227-4a10-bc19-e5ae6fe24a83" ]
-    },
-    "createdTimestamp" : 1731748159326,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "4b0d9902-8625-446c-844f-9950dc4702e0",
-      "type" : "password",
-      "createdDate" : 1731748159531,
-      "secretData" : "{\"value\":\"JC/BbSSVChstAV6nIhi7TgO4WqP0RjVTVzquHioGQfcpJFQkjVafB6ffR+Gs1wcBZ1rZAys+Oiqm/iWLWXIRCA==\",\"salt\":\"WhSTdrMxmlRhV+2yshCIqQ==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
     "id" : "aa085372-db64-4cea-99af-d29485f1be10",
     "username" : "service-account-fitness-tracker-api",
     "emailVerified" : false,
@@ -646,31 +421,6 @@
     "totp" : false,
     "serviceAccountClientId" : "fitness-tracker-api",
     "credentials" : [ ],
-    "disableableCredentialTypes" : [ ],
-    "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
-    "notBefore" : 0,
-    "groups" : [ ]
-  }, {
-    "id" : "630e7399-9918-4276-8e5f-c7b81c304d62",
-    "username" : "thilsathbanu@gmail.com",
-    "firstName" : "Thilsath",
-    "lastName" : "Banu",
-    "email" : "thilsathbanu@gmail.com",
-    "emailVerified" : false,
-    "attributes" : {
-      "userId" : [ "user-ed6085e2-f678-4333-b365-a760abf53da2" ]
-    },
-    "createdTimestamp" : 1731690523955,
-    "enabled" : true,
-    "totp" : false,
-    "credentials" : [ {
-      "id" : "7cb570c9-ec4a-44f4-bffb-89ff65defcd9",
-      "type" : "password",
-      "createdDate" : 1731690524188,
-      "secretData" : "{\"value\":\"8gZVdScWZNdQoZkgKUE89uYnfNidat9ryvIoUpiZHRhqSsY5kIYzNHkDW8QL/04cyEupnhOlrlwEy3nFHwLQhA==\",\"salt\":\"fUuJimK6h/Yk4e+N5zn9pA==\",\"additionalParameters\":{}}",
-      "credentialData" : "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
-    } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
     "realmRoles" : [ "default-roles-fitness-tracker" ],
@@ -1583,7 +1333,7 @@
       "subType" : "anonymous",
       "subComponents" : { },
       "config" : {
-        "allowed-protocol-mapper-types" : [ "oidc-sha256-pairwise-sub-mapper", "oidc-usermodel-attribute-mapper", "oidc-usermodel-property-mapper", "oidc-address-mapper", "saml-role-list-mapper", "saml-user-property-mapper", "oidc-full-name-mapper", "saml-user-attribute-mapper" ]
+        "allowed-protocol-mapper-types" : [ "saml-user-attribute-mapper", "oidc-sha256-pairwise-sub-mapper", "oidc-usermodel-attribute-mapper", "oidc-usermodel-property-mapper", "oidc-full-name-mapper", "saml-user-property-mapper", "saml-role-list-mapper", "oidc-address-mapper" ]
       }
     }, {
       "id" : "b87b614a-c4df-4af1-9f73-c9933af43cdd",
@@ -1620,7 +1370,7 @@
       "subType" : "authenticated",
       "subComponents" : { },
       "config" : {
-        "allowed-protocol-mapper-types" : [ "saml-role-list-mapper", "oidc-usermodel-attribute-mapper", "saml-user-attribute-mapper", "oidc-address-mapper", "oidc-sha256-pairwise-sub-mapper", "oidc-full-name-mapper", "oidc-usermodel-property-mapper", "saml-user-property-mapper" ]
+        "allowed-protocol-mapper-types" : [ "oidc-sha256-pairwise-sub-mapper", "oidc-usermodel-property-mapper", "oidc-full-name-mapper", "saml-role-list-mapper", "saml-user-attribute-mapper", "saml-user-property-mapper", "oidc-usermodel-attribute-mapper", "oidc-address-mapper" ]
       }
     }, {
       "id" : "8bc8d312-8def-4ab1-b880-f36667ff4be4",

@@ -1,16 +1,15 @@
 plugins {
   java
 
-  id("io.freefair.lombok") version "8.11"
-  id("com.diffplug.spotless") version "6.25.0"
-  id("org.springframework.boot") version "3.2.5"
-  id("io.spring.dependency-management") version "1.1.4"
+  id("org.springframework.boot")
+  id("io.spring.dependency-management")
+  id("com.google.cloud.tools.jib")
 }
 
 dependencies {
   implementation(project(":fit-mind-commons"))
   implementation(project(":fit-mind-commons-api"))
-  implementation(project(":fit-mind-user-api"))
+  implementation(project(":fit-mind-users-api"))
 
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -23,4 +22,23 @@ dependencies {
 
   testImplementation(platform("org.junit:junit-bom:5.10.0"))
   testImplementation("org.junit.jupiter:junit-jupiter")
+}
+
+jib {
+  container {
+    mainClass = "com.bits.ss.fitmind.FitMindBeUsersApplication"
+  }
+  from {
+    image = "eclipse-temurin:17.0.13_11-jre"
+    platforms {
+      platform {
+        architecture = "arm64"
+        os = "linux"
+      }
+    }
+  }
+  to {
+    image = "fitmind/users-be:${project.version}"
+  }
+  containerizingMode = "packaged"
 }
