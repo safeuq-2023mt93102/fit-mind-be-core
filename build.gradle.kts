@@ -1,18 +1,14 @@
 import com.diffplug.gradle.spotless.SpotlessExtension
 
 plugins {
-  java
-
-  id("io.freefair.lombok") version "8.11"
   id("com.diffplug.spotless") version "6.25.0"
-  id("org.springframework.boot") version "3.2.5"
-  id("io.spring.dependency-management") version "1.1.4"
+  id("io.freefair.lombok") version "8.11" apply false
+  id("org.springframework.boot") version "3.2.5" apply false
+  id("com.google.cloud.tools.jib") version "3.4.3" apply false
+  id("io.spring.dependency-management") version "1.1.4" apply false
 }
 
 allprojects {
-  apply(plugin = "java")
-  apply(plugin = "com.diffplug.spotless")
-
   group = "com.bits.ss.fitmind"
   version = "0.0.1-SNAPSHOT"
 
@@ -20,13 +16,19 @@ allprojects {
     mavenLocal()
     mavenCentral()
   }
+}
 
-  java {
+subprojects {
+  apply(plugin = "java")
+  apply(plugin = "io.freefair.lombok")
+  apply(plugin = "com.diffplug.spotless")
+
+  configure<JavaPluginExtension> {
     withSourcesJar()
     sourceCompatibility = JavaVersion.VERSION_17
   }
 
-  configure<SpotlessExtension> {
+  spotless {
     format("misc") {
       target("*.md")
       trimTrailingWhitespace()
@@ -38,27 +40,10 @@ allprojects {
     }
     kotlinGradle { ktfmt().googleStyle() }
   }
+
+  tasks.withType<Test> { useJUnitPlatform() }
 }
 
-dependencies {
-  implementation(project(":fit-mind-commons"))
-  implementation(project(":fit-mind-commons-api"))
-
-  implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-  implementation("org.springframework.boot:spring-boot-starter-web")
-  implementation("org.springframework.boot:spring-boot-starter-actuator")
-  developmentOnly("org.springframework.boot:spring-boot-devtools")
-  testImplementation("org.springframework.boot:spring-boot-starter-test")
-
-  implementation("com.bits.ss.fitmind:fit-mind-user-api:0.0.1-SNAPSHOT")
-  implementation(libs.vavr)
-  implementation(libs.janino)
-  implementation(libs.jackson.core)
-  implementation(libs.jackson.databind)
-  implementation(libs.apache.commons.lang3)
-  implementation(libs.jakarta.ws.rs.api)
-  implementation(libs.keycloak.admin.client)
-  runtimeOnly("com.h2database:h2")
+spotless {
+  kotlinGradle { ktfmt().googleStyle() }
 }
-
-tasks.withType<Test> { useJUnitPlatform() }

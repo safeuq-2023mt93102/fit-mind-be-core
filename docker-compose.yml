@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  core-be:
+    container_name: fit-mind-core-be
+    image: fitmind/core-be:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
+    networks:
+      - fit-mind-network
+    depends_on:
+      keycloak:
+        condition: service_healthy
+
+  keycloak:
+    container_name: fit-mind-keycloak
+    build:
+      context: .
+      dockerfile: Dockerfile.keycloak
+    ports:
+      - "8090:8090"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    command: start-dev --http-port=8090 --import-realm --health-enabled=true
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
+    networks:
+      - fit-mind-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8090/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  fit-mind-network:
+    driver: bridge 
