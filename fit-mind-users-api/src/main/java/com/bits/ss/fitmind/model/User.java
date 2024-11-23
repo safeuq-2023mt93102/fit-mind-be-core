@@ -4,12 +4,11 @@ import com.bits.ss.fitmind.model.ApiException.ParamPatternInvalid;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.commons.lang3.StringUtils;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.StringJoiner;
+import org.apache.commons.lang3.StringUtils;
 
 public final class User {
   public static final String DATE_PATTERN = "dd-MM-yyyy";

@@ -4,6 +4,7 @@ import com.bits.ss.fitmind.model.ApiException;
 import com.bits.ss.fitmind.model.Identity;
 import com.bits.ss.fitmind.model.User;
 import jakarta.ws.rs.core.Response;
+import java.util.Collections;
 import org.apache.commons.lang3.StringUtils;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.UsersResource;
@@ -15,8 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Collections;
 
 @RestController
 public class AuthController {

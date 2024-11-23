@@ -1,6 +1,4 @@
-plugins {
-  java
-}
+plugins { java }
 
 repositories {
   mavenLocal()

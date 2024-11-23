@@ -1,5 +1,3 @@
-import com.diffplug.gradle.spotless.SpotlessExtension
-
 plugins {
   id("com.diffplug.spotless") version "6.25.0"
   id("io.freefair.lombok") version "8.11" apply false
@@ -44,6 +42,4 @@ subprojects {
   tasks.withType<Test> { useJUnitPlatform() }
 }
 
-spotless {
-  kotlinGradle { ktfmt().googleStyle() }
-}
+spotless { kotlinGradle { ktfmt().googleStyle() } }

@@ -25,9 +25,7 @@ dependencies {
 }
 
 jib {
-  container {
-    mainClass = "com.bits.ss.fitmind.FitMindBeUsersApplication"
-  }
+  container { mainClass = "com.bits.ss.fitmind.FitMindBeUsersApplication" }
   from {
     image = "eclipse-temurin:17.0.13_11-jre"
     platforms {
@@ -38,7 +36,8 @@ jib {
     }
   }
   to {
-    image = "fitmind/users-be:${project.version}"
+    image = "fitmind/users-be"
+    tags = setOf("latest", project.version.toString())
   }
   containerizingMode = "packaged"
 }

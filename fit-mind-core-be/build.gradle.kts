@@ -1,5 +1,3 @@
-import com.diffplug.gradle.spotless.SpotlessExtension
-
 plugins {
   java
 
@@ -31,9 +29,7 @@ dependencies {
 }
 
 jib {
-  container {
-    mainClass = "com.bits.ss.fitmind.FitMindBeCoreApplication"
-  }
+  container { mainClass = "com.bits.ss.fitmind.FitMindBeCoreApplication" }
   from {
     image = "eclipse-temurin:17.0.13_11-jre"
     platforms {
@@ -44,7 +40,11 @@ jib {
     }
   }
   to {
-    image = "fitmind/core-be:${project.version}"
+    image = "fitmind/core-be"
+    tags = setOf("latest", project.version.toString())
+  }
+  container {
+    jvmFlags = mutableListOf("-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005")
   }
   containerizingMode = "packaged"
 }

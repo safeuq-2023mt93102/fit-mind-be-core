@@ -1,12 +1,17 @@
 package com.bits.ss.fitmind.model;
 
 import com.bits.ss.fitmind.database.UserRecord;
-
 import java.util.Objects;
 
 public class UserAdaptor {
   public static UserRecord toUserRecord(User user, String userId, String ownerId) {
-    return new UserRecord(userId, ownerId, user.getFirstName(), user.getLastName(), user.getEmail(), user.getDateOfBirth());
+    return new UserRecord(
+        userId,
+        ownerId,
+        user.getFirstName(),
+        user.getLastName(),
+        user.getEmail(),
+        user.getDateOfBirth());
   }
 
   public static UserRecord toUserRecord(User user, UserRecord oldUser, String ownerId) {
