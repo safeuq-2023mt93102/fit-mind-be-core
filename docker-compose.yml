@@ -32,7 +32,7 @@ services:
 
   frontend:
     container_name: fit-mind-fe
-    image: fit-mind-fe:latest
+    image: fitmind/fe:latest
     ports:
       - "3000:3000"
     environment:
