@@ -11,7 +11,8 @@
           "day": "2024-05-13",
           "completed": false,
           "data": {
-            "type": "HIIT",
+            "type": "EXERCISE",
+            "exercise": "HIIT",
             "duration": "PT30M"
           }
         },
@@ -20,7 +21,8 @@
           "day": "2024-05-13",
           "completed": false,
           "data": {
-            "type": "DEADLIFTS",
+            "type": "EXERCISE",
+            "exercise": "DEADLIFTS",
             "sets": 4,
             "repetitions": 8,
             "weight": "70% of 1RM"
@@ -31,7 +33,8 @@
           "day": "2024-05-13",
           "completed": false,
           "data": {
-            "type": "DUMBBELL_LUNGES",
+            "type": "EXERCISE",
+            "exercise": "DUMBBELL_LUNGES",
             "sets": 4,
             "repetitions": 10,
             "weight": "Moderate"
@@ -47,22 +50,23 @@
           "day": "2024-05-15",
           "completed": false,
           "data": {
-            "type": "CIRCUIT",
+            "type": "EXERCISE",
+            "exercise": "CIRCUIT",
             "duration": "PT45M",
             "exercises": [
               {
                 "id": "126-4-1",
-                "type": "JUMP_SQUATS",
+                "exercise": "JUMP_SQUATS",
                 "repetitions": 15
               },
               {
                 "id": "126-4-2",
-                "type": "PUSH_UPS",
+                "exercise": "PUSH_UPS",
                 "repetitions": 15
               },
               {
                 "id": "126-4-3",
-                "type": "MOUNTAIN_CLIMBERS",
+                "exercise": "MOUNTAIN_CLIMBERS",
                 "repetitions": 20
               }
             ]
@@ -73,7 +77,8 @@
           "day": "2024-05-15",
           "completed": false,
           "data": {
-            "type": "PULL_UPS",
+            "type": "EXERCISE",
+            "exercise": "PULL_UPS",
             "sets": 4,
             "repetitions": 6,
             "weight": "Bodyweight"
@@ -89,7 +94,8 @@
           "day": "2024-05-17",
           "completed": false,
           "data": {
-            "type": "STEADY_STATE_CARDIO",
+            "type": "EXERCISE",
+            "exercise": "STEADY_STATE_CARDIO",
             "duration": "PT45M"
           }
         },
@@ -98,7 +104,8 @@
           "day": "2024-05-17",
           "completed": false,
           "data": {
-            "type": "PLANK",
+            "type": "EXERCISE",
+            "exercise": "PLANK",
             "sets": 3,
             "duration": "PT60S"
           }
@@ -108,7 +115,8 @@
           "day": "2024-05-17",
           "completed": false,
           "data": {
-            "type": "RUSSIAN_TWISTS",
+            "type": "EXERCISE",
+            "exercise": "RUSSIAN_TWISTS",
             "sets": 4,
             "repetitions": 20,
             "weight": "Moderate"
