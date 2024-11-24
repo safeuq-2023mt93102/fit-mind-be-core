@@ -12,18 +12,21 @@ public class ExerciseGoal implements GoalMetadata {
   private final Long repetitions;
   private final Duration duration;
   private final List<ExerciseGoal> exercises;
+  private final String weight;
 
   private ExerciseGoal(
       ExerciseType exercise,
       Long sets,
       Long repetitions,
       Duration duration,
-      List<ExerciseGoal> exercises) {
+      List<ExerciseGoal> exercises,
+      String weight) {
     this.exercise = exercise;
     this.sets = sets;
     this.repetitions = repetitions;
     this.duration = duration;
     this.exercises = exercises;
+    this.weight = weight;
   }
 
   @JsonCreator
@@ -32,8 +35,9 @@ public class ExerciseGoal implements GoalMetadata {
       @JsonProperty("sets") Long sets,
       @JsonProperty("repetitions") Long repetitions,
       @JsonProperty("duration") Duration duration,
-      @JsonProperty("exercises") List<ExerciseGoal> exercises) {
-    return new ExerciseGoal(exercise, sets, repetitions, duration, exercises);
+      @JsonProperty("exercises") List<ExerciseGoal> exercises,
+      @JsonProperty("weight") String weight) {
+    return new ExerciseGoal(exercise, sets, repetitions, duration, exercises, weight);
   }
 
   @JsonProperty("exercise")
@@ -61,6 +65,11 @@ public class ExerciseGoal implements GoalMetadata {
     return exercises;
   }
 
+  @JsonProperty("weight")
+  public String getWeight() {
+    return weight;
+  }
+
   @Override
   public GoalType getType() {
     return GoalType.EXERCISE;
@@ -83,6 +92,9 @@ public class ExerciseGoal implements GoalMetadata {
     }
     if (exercises != null) {
       result.add("\"exercises\": " + exercises);
+    }
+    if (weight != null) {
+      result.add("\"weight\": " + weight);
     }
     return result.toString();
   }

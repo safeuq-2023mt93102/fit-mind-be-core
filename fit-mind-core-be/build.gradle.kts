@@ -15,7 +15,7 @@ dependencies {
   developmentOnly("org.springframework.boot:spring-boot-starter-actuator")
   developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-  implementation("com.bits.ss.fitmind:fit-mind-user-api:0.0.1-SNAPSHOT")
+  implementation(project(":fit-mind-users-api"))
   implementation(libs.vavr)
   implementation(libs.janino)
   implementation(libs.jackson.core)
