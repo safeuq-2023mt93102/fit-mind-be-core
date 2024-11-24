@@ -51,21 +51,24 @@
           "completed": false,
           "data": {
             "type": "EXERCISE",
-            "exercise": "CIRCUIT",
+            "exercise": "CIRCUIT_TRAINING",
             "duration": "PT45M",
             "exercises": [
               {
                 "id": "126-4-1",
+                "type": "EXERCISE",
                 "exercise": "JUMP_SQUATS",
                 "repetitions": 15
               },
               {
                 "id": "126-4-2",
+                "type": "EXERCISE",
                 "exercise": "PUSH_UPS",
                 "repetitions": 15
               },
               {
                 "id": "126-4-3",
+                "type": "EXERCISE",
                 "exercise": "MOUNTAIN_CLIMBERS",
                 "repetitions": 20
               }
