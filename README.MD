@@ -49,6 +49,54 @@ opt/keycloak/bin/kc.sh import --file /opt/keycloak/data/import/ fit-mind-realm.j
 To map `userId` passed during Keycloak user creation back to the Principal object, we need to add a mapper to the `profile` client scope.
 [Reference](https://medium.com/@lakshminp/adding-user-attributes-to-jwt-token-in-keycloak-f3981b7df310)
 
+## Docker
+
+### Building the images
+
+Both `core-be` and `users-be` server images can be built using the following command:
+
+```shell
+./gradlew jibDockerBuild
+```
+
+In Windows, the following command can be used instead
+
+```shell
+gradlew.bat jibDockerBuild
+```
+
+To build the frontend server into an image, follow the instructions [here](https://github.com/safeuq-2023mt93102/fit-mind-frontend?tab=readme-ov-file#docker-images)
+
+### Addition setup
+
+Docker containers have their own isolated network. So, the localhost of the guest containers are different 
+from the localhost of the host machine. This requires the following changes in images:
+
+- The host of each server in configurations is referred by its container name.
+- The Keycloak container requires the `KC_HOSTNAME` property to be specified.
+- The realm configuration requires whitelisting the new domain paths (for Web Origins, etc,.).
+- The new domain paths must be resolvable to localhost in the host machine.
+
+To fix the domain path resolution, edit the hosts file and include the following entries
+
+```text
+127.0.0.1 fit-mind-keycloak
+127.0.0.1 fit-mind-fe
+```
+
+- In *nix OSes (MacOS, Linux), it is located in `/etc/hosts`. 
+- In Windows, it is located in `C:\Windows\System32\Drivers\etc\hosts`
+
+You may need Administrator/Superuser privileges to edit these files.
+
+### Deployment
+
+Once all the images are built, start the containers using Docker compose:
+
+```shell
+docker-compose up -d
+```
+
 ## API Shape:
 ### User Authentication:
 - `POST /users` - Create a user
