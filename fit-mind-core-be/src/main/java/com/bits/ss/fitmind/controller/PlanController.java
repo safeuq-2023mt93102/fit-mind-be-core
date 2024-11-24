@@ -53,7 +53,7 @@ public class PlanController {
   public ResponseEntity<?> createPlan(@RequestBody PlanRequest planRequest) throws IOException {
     Plan plan = generatePlan(planRequest);
     PlanRecord savedPlan = planRepository.save(modelAdaptor.toPlanRecord(plan));
-    plan = savedPlan.toPlan(plan.getWorkouts());
+    plan = ModelAdaptor.toPlan(savedPlan, plan.getWorkouts());
     Plan finalPlan = plan;
     List<GoalRecord> allGoals =
         plan.getWorkouts().stream()
@@ -71,12 +71,16 @@ public class PlanController {
         goalsByDay.values().stream()
             .map(goals -> PlanWorkout.of(goals.iterator().next().getDay(), goals))
             .collect(Collectors.toList());
-    return ResponseEntity.ok().body(savedPlan.toPlan(planWorkouts));
+    return ResponseEntity.ok().body(ModelAdaptor.toPlan(savedPlan, planWorkouts));
   }
 
   private Plan generatePlan(PlanRequest planRequest) throws IOException {
     String planId = "plan-" + UUID.randomUUID();
-    Plan readPlan = readPlan(planRequest).withId(planId);
+    Plan readPlan =
+        readPlan(planRequest)
+            .withId(planId)
+            .withLevel(planRequest.getLevel())
+            .withTarget(planRequest.getTarget());
     LocalDate localDate = LocalDate.now();
     List<PlanWorkout> workouts = new ArrayList<>();
     for (PlanWorkout workout : readPlan.getWorkouts()) {
@@ -122,7 +126,7 @@ public class PlanController {
   public ResponseEntity<List<Plan>> listPlans() {
     List<Plan> records =
         Stream.ofAll(planRepository.findAll())
-            .map(planRecord -> planRecord.toPlan(List.of()))
+            .map(planRecord -> ModelAdaptor.toPlan(planRecord, List.of()))
             .toJavaList();
     return ResponseEntity.ok().body(records);
   }
@@ -134,7 +138,7 @@ public class PlanController {
       return ResponseEntity.notFound().build();
     }
     PlanRecord planRecord = planRecordOptional.get();
-    Plan plan = planRecord.toPlan(getAllWorkoutsForPlan(planRecord.getId()));
+    Plan plan = ModelAdaptor.toPlan(planRecord, getAllWorkoutsForPlan(planRecord.getId()));
     return ResponseEntity.ok(plan);
   }
 

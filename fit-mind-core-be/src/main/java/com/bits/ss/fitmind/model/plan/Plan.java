@@ -13,12 +13,22 @@ import java.util.StringJoiner;
 public final class Plan {
   private final String id;
   private final String planName;
+  private final PlanLevel level;
+  private final PlanTarget target;
   private final Period duration;
   private final List<PlanWorkout> workouts;
 
-  private Plan(String id, String planName, Period duration, List<PlanWorkout> workouts) {
+  private Plan(
+      String id,
+      String planName,
+      PlanLevel level,
+      PlanTarget target,
+      Period duration,
+      List<PlanWorkout> workouts) {
     this.id = id;
     this.planName = planName;
+    this.level = level;
+    this.target = target;
     this.duration = duration;
     this.workouts = workouts;
   }
@@ -39,8 +49,10 @@ public final class Plan {
       @JsonProperty("id") String id,
       @JsonProperty("name") String planName,
       @JsonProperty("duration") Period duration,
-      @JsonProperty("workouts") List<PlanWorkout> workouts) {
-    return new Plan(id, planName, duration, workouts);
+      @JsonProperty("workouts") List<PlanWorkout> workouts,
+      @JsonProperty("level") PlanLevel level,
+      @JsonProperty("target") PlanTarget target) {
+    return new Plan(id, planName, level, target, duration, workouts);
   }
 
   @JsonProperty("id")
@@ -63,6 +75,16 @@ public final class Plan {
     return workouts;
   }
 
+  @JsonProperty("level")
+  public PlanLevel getLevel() {
+    return level;
+  }
+
+  @JsonProperty("target")
+  public PlanTarget getTarget() {
+    return target;
+  }
+
   @Override
   public String toString() {
     StringJoiner result = new StringJoiner(", ", "{", "}");
@@ -82,10 +104,18 @@ public final class Plan {
   }
 
   public Plan withId(String id) {
-    return new Plan(id, planName(), getDuration(), getWorkouts());
+    return of(id, planName(), getDuration(), getWorkouts(), getLevel(), getTarget());
+  }
+
+  public Plan withLevel(PlanLevel level) {
+    return of(id(), planName(), getDuration(), getWorkouts(), level, getTarget());
+  }
+
+  public Plan withTarget(PlanTarget target) {
+    return of(id(), planName(), getDuration(), getWorkouts(), getLevel(), target);
   }
 
   public Plan withWorkouts(List<PlanWorkout> workouts) {
-    return new Plan(id(), planName(), getDuration(), workouts);
+    return of(id(), planName(), getDuration(), workouts, getLevel(), getTarget());
   }
 }

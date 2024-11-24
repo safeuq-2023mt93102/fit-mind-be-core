@@ -1,26 +1,26 @@
 package com.bits.ss.fitmind.database;
 
-import com.bits.ss.fitmind.model.plan.Plan;
-import com.bits.ss.fitmind.model.plan.PlanWorkout;
-import jakarta.persistence.*;
-import java.time.Period;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Table(name = "plan")
 public final class PlanRecord {
   @Id private String id;
 
   private String planName;
+  private String level;
+  private String target;
   private String duration;
-
-  public Plan toPlan(List<PlanWorkout> planWorkouts) {
-    return Plan.of(id, planName, Period.parse(duration), planWorkouts);
-  }
 }
