@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class KeycloakModule {
-  public static final String realm = "fitness-tracker";
+  public static final String realm = "fit-mind";
 
   static final String userName = "admin";
   static final String password = "admin";

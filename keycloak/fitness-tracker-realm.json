@@ -1,6 +1,6 @@
 {
   "id" : "6cc12b25-1e1e-441c-92ee-8151a2c019d5",
-  "realm" : "fitness-tracker",
+  "realm" : "fit-mind",
   "notBefore" : 0,
   "defaultSignatureAlgorithm" : "RS256",
   "revokeRefreshToken" : false,
@@ -47,14 +47,14 @@
   "roles" : {
     "realm" : [ {
       "id" : "80e62581-8f90-4455-8cbb-718293f18cbd",
-      "name" : "default-roles-fitness-tracker",
+      "name" : "default-roles-fit-mind",
       "description" : "${role_default-roles}",
       "composite" : true,
       "composites" : {
         "realm" : [ "offline_access", "uma_authorization" ],
         "client" : {
           "account" : [ "manage-account", "view-profile" ],
-          "fitness-tracker-api" : [ "user" ]
+          "fit-mind-api" : [ "user" ]
         }
       },
       "clientRole" : false,
@@ -258,7 +258,7 @@
         "containerId" : "7026bab9-9414-49a8-97c4-48ed4f4df6b5",
         "attributes" : { }
       } ],
-      "fitness-tracker-nextjs" : [ ],
+      "fit-mind-nextjs" : [ ],
       "account" : [ {
         "id" : "d2b07784-54e7-4863-bce2-08a406dc34b2",
         "name" : "delete-account",
@@ -334,7 +334,7 @@
         "containerId" : "272b3299-6f44-4e9c-a56d-11ba11e7eb05",
         "attributes" : { }
       } ],
-      "fitness-tracker-api" : [ {
+      "fit-mind-api" : [ {
         "id" : "cd025de0-6326-40ce-a913-296c17bf3a13",
         "name" : "user",
         "description" : "",
@@ -348,7 +348,7 @@
   "groups" : [ ],
   "defaultRole" : {
     "id" : "80e62581-8f90-4455-8cbb-718293f18cbd",
-    "name" : "default-roles-fitness-tracker",
+    "name" : "default-roles-fit-mind",
     "description" : "${role_default-roles}",
     "composite" : true,
     "clientRole" : false,
@@ -406,7 +406,7 @@
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
+    "realmRoles" : [ "default-roles-fit-mind" ],
     "clientRoles" : {
       "realm-management" : [ "manage-users", "manage-clients" ]
     },
@@ -414,16 +414,16 @@
     "groups" : [ ]
   }, {
     "id" : "aa085372-db64-4cea-99af-d29485f1be10",
-    "username" : "service-account-fitness-tracker-api",
+    "username" : "service-account-fit-mind-api",
     "emailVerified" : false,
     "createdTimestamp" : 1715467504358,
     "enabled" : true,
     "totp" : false,
-    "serviceAccountClientId" : "fitness-tracker-api",
+    "serviceAccountClientId" : "fit-mind-api",
     "credentials" : [ ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "default-roles-fitness-tracker" ],
+    "realmRoles" : [ "default-roles-fit-mind" ],
     "notBefore" : 0,
     "groups" : [ ]
   } ],
@@ -442,12 +442,12 @@
     "clientId" : "account",
     "name" : "${client_account}",
     "rootUrl" : "${authBaseUrl}",
-    "baseUrl" : "/realms/fitness-tracker/account/",
+    "baseUrl" : "/realms/fit-mind/account/",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "redirectUris" : [ "/realms/fitness-tracker/account/*" ],
+    "redirectUris" : [ "/realms/fit-mind/account/*" ],
     "webOrigins" : [ ],
     "notBefore" : 0,
     "bearerOnly" : false,
@@ -472,12 +472,12 @@
     "clientId" : "account-console",
     "name" : "${client_account-console}",
     "rootUrl" : "${authBaseUrl}",
-    "baseUrl" : "/realms/fitness-tracker/account/",
+    "baseUrl" : "/realms/fit-mind/account/",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "redirectUris" : [ "/realms/fitness-tracker/account/*" ],
+    "redirectUris" : [ "/realms/fit-mind/account/*" ],
     "webOrigins" : [ ],
     "notBefore" : 0,
     "bearerOnly" : false,
@@ -564,8 +564,8 @@
     "optionalClientScopes" : [ "address", "phone", "offline_access", "microprofile-jwt" ]
   }, {
     "id" : "8ea6cc97-3952-4083-a4c2-48d87082b08d",
-    "clientId" : "fitness-tracker-api",
-    "name" : "Fitness Tracker API",
+    "clientId" : "fit-mind-api",
+    "name" : "Fit Mind API",
     "description" : "",
     "rootUrl" : "",
     "adminUrl" : "",
@@ -667,8 +667,8 @@
     "optionalClientScopes" : [ "address", "phone", "offline_access" ]
   }, {
     "id" : "67951190-f155-4a2e-8d48-3c8427b140fc",
-    "clientId" : "fitness-tracker-nextjs",
-    "name" : "Fitness Tracker NextJs",
+    "clientId" : "fit-mind-nextjs",
+    "name" : "Fit Mind NextJs",
     "description" : "",
     "rootUrl" : "",
     "adminUrl" : "",
@@ -744,12 +744,12 @@
     "clientId" : "security-admin-console",
     "name" : "${client_security-admin-console}",
     "rootUrl" : "${authAdminUrl}",
-    "baseUrl" : "/admin/fitness-tracker/console/",
+    "baseUrl" : "/admin/fit-mind/console/",
     "surrogateAuthRequired" : false,
     "enabled" : true,
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
-    "redirectUris" : [ "/admin/fitness-tracker/console/*" ],
+    "redirectUris" : [ "/admin/fit-mind/console/*" ],
     "webOrigins" : [ "+" ],
     "notBefore" : 0,
     "bearerOnly" : false,

@@ -6,8 +6,8 @@ services:
     ports:
       - "8081:8081"
     environment:
-      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
-      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
+      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fit-mind
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fit-mind
       - KEYCLOAK_SERVICE_URL=http://fit-mind-keycloak:8090
     networks:
       - fit-mind-network
@@ -21,8 +21,8 @@ services:
     ports:
       - "8082:8082"
     environment:
-      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
-      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fitness-tracker
+      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fit-mind
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fit-mind
       - KEYCLOAK_SERVICE_URL=http://fit-mind-keycloak:8090
     networks:
       - fit-mind-network
