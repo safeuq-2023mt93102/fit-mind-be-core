@@ -1,45 +1,48 @@
 package com.bits.ss.fitmind.model.goals;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.Duration;
 import java.util.List;
 import java.util.StringJoiner;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ExerciseGoal implements GoalMetadata {
   private final ExerciseType exercise;
   private final Long sets;
   private final Long repetitions;
   private final Duration duration;
-  private final List<GoalMetadata> exercises;
+  private final List<ExerciseGoal> exercises;
   private final String weight;
   private final String id;
 
   private ExerciseGoal(
-          ExerciseType exercise,
-          Long sets,
-          Long repetitions,
-          Duration duration,
-          List<GoalMetadata> exercises,
-          String weight, String id) {
+      ExerciseType exercise,
+      Long sets,
+      Long repetitions,
+      Duration duration,
+      List<ExerciseGoal> exercises,
+      String weight,
+      String id) {
     this.exercise = exercise;
     this.sets = sets;
     this.repetitions = repetitions;
     this.duration = duration;
     this.exercises = exercises;
     this.weight = weight;
-      this.id = id;
+    this.id = id;
   }
 
   @JsonCreator
   public static ExerciseGoal of(
-          @JsonProperty("exercise") ExerciseType exercise,
-          @JsonProperty("sets") Long sets,
-          @JsonProperty("repetitions") Long repetitions,
-          @JsonProperty("duration") Duration duration,
-          @JsonProperty("exercises") List<GoalMetadata> exercises,
-          @JsonProperty("weight") String weight,
-          @JsonProperty("id") String id) {
+      @JsonProperty("exercise") ExerciseType exercise,
+      @JsonProperty("sets") Long sets,
+      @JsonProperty("repetitions") Long repetitions,
+      @JsonProperty("duration") Duration duration,
+      @JsonProperty("exercises") List<ExerciseGoal> exercises,
+      @JsonProperty("weight") String weight,
+      @JsonProperty("id") String id) {
     return new ExerciseGoal(exercise, sets, repetitions, duration, exercises, weight, id);
   }
 
@@ -64,7 +67,7 @@ public class ExerciseGoal implements GoalMetadata {
   }
 
   @JsonProperty("exercises")
-  public List<GoalMetadata> getExercises() {
+  public List<ExerciseGoal> getExercises() {
     return exercises;
   }
 

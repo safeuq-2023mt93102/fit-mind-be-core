@@ -43,5 +43,8 @@ jib {
     image = "fitmind/core-be"
     tags = setOf("latest", project.version.toString())
   }
+  container {
+    // jvmFlags = listOf("-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005")
+  }
   containerizingMode = "packaged"
 }

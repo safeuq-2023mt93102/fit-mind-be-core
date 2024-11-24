@@ -5,6 +5,7 @@ services:
     image: fitmind/core-be:latest
     ports:
       - "8081:8081"
+      # - "5005:5005"
     environment:
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fit-mind
       - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI=http://fit-mind-keycloak:8090/realms/fit-mind

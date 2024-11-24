@@ -22,14 +22,11 @@ public class ModelAdaptor {
   public GoalRecord toGoalRecord(Goal goal, String workoutId) {
     var goalData = this.jsonMapper.writeValueAsString(goal.getData());
     if (goalData.length() > 255) {
-      goalData = "{}";
+      // language=JSON
+      goalData = "{\"type\": \"EXERCISE\"}";
     }
     return new GoalRecord(
-        goal.id(),
-        workoutId,
-        goal.getDay().toString(),
-        goal.isCompleted(),
-        goalData);
+        goal.id(), workoutId, goal.getDay().toString(), goal.isCompleted(), goalData);
   }
 
   @SneakyThrows
